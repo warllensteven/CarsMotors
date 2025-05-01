@@ -9,6 +9,7 @@ package com.carmotors.inventory.model;
  * @author warle
  */
 public class Supplier {
+
     private int id;
     private String name;
     private String nit;
@@ -23,14 +24,43 @@ public class Supplier {
         this.visitFrequency = visitFrequency;
     }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-    public String getNit() { return nit; }
-    public void setNit(String nit) { this.nit = nit; }
-    public String getContact() { return contact; }
-    public void setContact(String contact) { this.contact = contact; }
-    public String getVisitFrequency() { return visitFrequency; }
-    public void setVisitFrequency(String visitFrequency) { this.visitFrequency = visitFrequency; }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getNit() {
+        return nit;
+    }
+
+    public void setNit(String nit) {
+        this.nit = nit;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+
+    public String getVisitFrequency() {
+        return visitFrequency;
+    }
+
+    public void setVisitFrequency(String visitFrequency) {
+        this.visitFrequency = visitFrequency;
+    }
 }

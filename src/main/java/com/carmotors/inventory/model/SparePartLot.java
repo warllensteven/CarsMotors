@@ -11,6 +11,7 @@ package com.carmotors.inventory.model;
 import java.time.LocalDate;
 
 public class SparePartLot {
+
     private int id;
     private int sparePartId;
     private String batchCode;
@@ -27,16 +28,51 @@ public class SparePartLot {
         this.supplierId = supplierId;
     }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
-    public int getSparePartId() { return sparePartId; }
-    public void setSparePartId(int sparePartId) { this.sparePartId = sparePartId; }
-    public String getBatchCode() { return batchCode; }
-    public void setBatchCode(String batchCode) { this.batchCode = batchCode; }
-    public LocalDate getEntryDate() { return entryDate; }
-    public void setEntryDate(LocalDate entryDate) { this.entryDate = entryDate; }
-    public int getQuantity() { return quantity; }
-    public void setQuantity(int quantity) { this.quantity = quantity; }
-    public int getSupplierId() { return supplierId; }
-    public void setSupplierId(int supplierId) { this.supplierId = supplierId; }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getSparePartId() {
+        return sparePartId;
+    }
+
+    public void setSparePartId(int sparePartId) {
+        this.sparePartId = sparePartId;
+    }
+
+    public String getBatchCode() {
+        return batchCode;
+    }
+
+    public void setBatchCode(String batchCode) {
+        this.batchCode = batchCode;
+    }
+
+    public LocalDate getEntryDate() {
+        return entryDate;
+    }
+
+    public void setEntryDate(LocalDate entryDate) {
+        this.entryDate = entryDate;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public int getSupplierId() {
+        return supplierId;
+    }
+
+    public void setSupplierId(int supplierId) {
+        this.supplierId = supplierId;
+    }
 }

@@ -11,6 +11,7 @@ package com.carmotors.inventory.model;
 import java.time.LocalDate;
 
 public class PurchaseOrder {
+
     private int id;
     private int supplierId;
     private LocalDate orderDate;
@@ -25,14 +26,43 @@ public class PurchaseOrder {
         this.totalCost = totalCost;
     }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
-    public int getSupplierId() { return supplierId; }
-    public void setSupplierId(int supplierId) { this.supplierId = supplierId; }
-    public LocalDate getOrderDate() { return orderDate; }
-    public void setOrderDate(LocalDate orderDate) { this.orderDate = orderDate; }
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
-    public double getTotalCost() { return totalCost; }
-    public void setTotalCost(double totalCost) { this.totalCost = totalCost; }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getSupplierId() {
+        return supplierId;
+    }
+
+    public void setSupplierId(int supplierId) {
+        this.supplierId = supplierId;
+    }
+
+    public LocalDate getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(LocalDate orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public double getTotalCost() {
+        return totalCost;
+    }
+
+    public void setTotalCost(double totalCost) {
+        this.totalCost = totalCost;
+    }
 }

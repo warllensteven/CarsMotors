@@ -9,6 +9,7 @@ package com.carmotors.inventory.model;
  * @author warle
  */
 public class PurchaseOrderDetail {
+
     private int id;
     private int purchaseOrderId;
     private int sparePartId;
@@ -23,15 +24,43 @@ public class PurchaseOrderDetail {
         this.unitPrice = unitPrice;
     }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
-    public int getPurchaseOrderId() { return purchaseOrderId; }
-    public void setPurchaseOrderId(int purchaseOrderId) { this.purchaseOrderId = purchaseOrderId; }
-    public int getSparePartId() { return sparePartId; }
-    public void setSparePartId(int sparePartId) { this.sparePartId = sparePartId; }
-    public int getQuantity() { return quantity; }
-    public void setQuantity(int quantity) { this.quantity = quantity; }
-    public double getUnitPrice() { return unitPrice; }
-    public void setUnitPrice(double unitPrice) { this.unitPrice = unitPrice; }
-}
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getPurchaseOrderId() {
+        return purchaseOrderId;
+    }
+
+    public void setPurchaseOrderId(int purchaseOrderId) {
+        this.purchaseOrderId = purchaseOrderId;
+    }
+
+    public int getSparePartId() {
+        return sparePartId;
+    }
+
+    public void setSparePartId(int sparePartId) {
+        this.sparePartId = sparePartId;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public double getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(double unitPrice) {
+        this.unitPrice = unitPrice;
+    }
+}

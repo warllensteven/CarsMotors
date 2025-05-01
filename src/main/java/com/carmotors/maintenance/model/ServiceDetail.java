@@ -9,6 +9,7 @@ package com.carmotors.maintenance.model;
  * @author warle
  */
 public class ServiceDetail {
+
     private int id;
     private int maintenanceServiceId;
     private int sparePartId;
@@ -21,13 +22,35 @@ public class ServiceDetail {
         this.quantityUsed = quantityUsed;
     }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
-    public int getMaintenanceServiceId() { return maintenanceServiceId; }
-    public void setMaintenanceServiceId(int maintenanceServiceId) { this.maintenanceServiceId = maintenanceServiceId; }
-    public int getSparePartId() { return sparePartId; }
-    public void setSparePartId(int sparePartId) { this.sparePartId = sparePartId; }
-    public int getQuantityUsed() { return quantityUsed; }
-    public void setQuantityUsed(int quantityUsed) { this.quantityUsed = quantityUsed; }
-}
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getMaintenanceServiceId() {
+        return maintenanceServiceId;
+    }
+
+    public void setMaintenanceServiceId(int maintenanceServiceId) {
+        this.maintenanceServiceId = maintenanceServiceId;
+    }
+
+    public int getSparePartId() {
+        return sparePartId;
+    }
+
+    public void setSparePartId(int sparePartId) {
+        this.sparePartId = sparePartId;
+    }
+
+    public int getQuantityUsed() {
+        return quantityUsed;
+    }
+
+    public void setQuantityUsed(int quantityUsed) {
+        this.quantityUsed = quantityUsed;
+    }
+}

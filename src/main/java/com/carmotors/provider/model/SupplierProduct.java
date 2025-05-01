@@ -11,6 +11,7 @@ package com.carmotors.provider.model;
 import java.time.LocalDate;
 
 public class SupplierProduct {
+
     private int id;
     private int supplierId;
     private int sparePartId;
@@ -27,16 +28,51 @@ public class SupplierProduct {
         this.unitPrice = unitPrice;
     }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
-    public int getSupplierId() { return supplierId; }
-    public void setSupplierId(int supplierId) { this.supplierId = supplierId; }
-    public int getSparePartId() { return sparePartId; }
-    public void setSparePartId(int sparePartId) { this.sparePartId = sparePartId; }
-    public LocalDate getSupplyDate() { return supplyDate; }
-    public void setSupplyDate(LocalDate supplyDate) { this.supplyDate = supplyDate; }
-    public int getQuantity() { return quantity; }
-    public void setQuantity(int quantity) { this.quantity = quantity; }
-    public double getUnitPrice() { return unitPrice; }
-    public void setUnitPrice(double unitPrice) { this.unitPrice = unitPrice; }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getSupplierId() {
+        return supplierId;
+    }
+
+    public void setSupplierId(int supplierId) {
+        this.supplierId = supplierId;
+    }
+
+    public int getSparePartId() {
+        return sparePartId;
+    }
+
+    public void setSparePartId(int sparePartId) {
+        this.sparePartId = sparePartId;
+    }
+
+    public LocalDate getSupplyDate() {
+        return supplyDate;
+    }
+
+    public void setSupplyDate(LocalDate supplyDate) {
+        this.supplyDate = supplyDate;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public double getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(double unitPrice) {
+        this.unitPrice = unitPrice;
+    }
 }

@@ -11,6 +11,7 @@ package com.carmotors.campaign.model;
 import java.time.LocalDate;
 
 public class PreventiveMaintenanceCampaign {
+
     private int id;
     private String name;
     private LocalDate startDate;
@@ -19,7 +20,7 @@ public class PreventiveMaintenanceCampaign {
     private double discountPercentage;
 
     public PreventiveMaintenanceCampaign(int id, String name, LocalDate startDate, LocalDate endDate,
-                                         String description, double discountPercentage) {
+            String description, double discountPercentage) {
         this.id = id;
         this.name = name;
         this.startDate = startDate;
@@ -28,16 +29,51 @@ public class PreventiveMaintenanceCampaign {
         this.discountPercentage = discountPercentage;
     }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-    public LocalDate getStartDate() { return startDate; }
-    public void setStartDate(LocalDate startDate) { this.startDate = startDate; }
-    public LocalDate getEndDate() { return endDate; }
-    public void setEndDate(LocalDate endDate) { this.endDate = endDate; }
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
-    public double getDiscountPercentage() { return discountPercentage; }
-    public void setDiscountPercentage(double discountPercentage) { this.discountPercentage = discountPercentage; }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getDiscountPercentage() {
+        return discountPercentage;
+    }
+
+    public void setDiscountPercentage(double discountPercentage) {
+        this.discountPercentage = discountPercentage;
+    }
 }

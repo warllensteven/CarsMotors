@@ -11,6 +11,7 @@ package com.carmotors.maintenance.model;
 import java.time.LocalDate;
 
 public class ServiceHistory {
+
     private int id;
     private int vehicleId;
     private int maintenanceServiceId;
@@ -25,14 +26,43 @@ public class ServiceHistory {
         this.description = description;
     }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
-    public int getVehicleId() { return vehicleId; }
-    public void setVehicleId(int vehicleId) { this.vehicleId = vehicleId; }
-    public int getMaintenanceServiceId() { return maintenanceServiceId; }
-    public void setMaintenanceServiceId(int maintenanceServiceId) { this.maintenanceServiceId = maintenanceServiceId; }
-    public LocalDate getDate() { return date; }
-    public void setDate(LocalDate date) { this.date = date; }
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getVehicleId() {
+        return vehicleId;
+    }
+
+    public void setVehicleId(int vehicleId) {
+        this.vehicleId = vehicleId;
+    }
+
+    public int getMaintenanceServiceId() {
+        return maintenanceServiceId;
+    }
+
+    public void setMaintenanceServiceId(int maintenanceServiceId) {
+        this.maintenanceServiceId = maintenanceServiceId;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
