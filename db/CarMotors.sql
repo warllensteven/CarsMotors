@@ -1,3 +1,4 @@
+
 CREATE DATABASE IF NOT EXISTS carmotors_db;
 USE carmotors_db;
 
@@ -240,3 +241,16 @@ CREATE INDEX idx_maintenance_services_vehicle ON maintenance_services(vehicle_id
 CREATE INDEX idx_invoices_client ON invoices(client_id);
 CREATE INDEX idx_spare_part_lots_batch_code ON spare_part_lots(batch_code);
 CREATE INDEX idx_maintenance_services_technician ON maintenance_services(technician_id);
+
+-- Crear el usuario 'Admin' accesible desde cualquier IP
+CREATE USER 'Admin'@'localhost' IDENTIFIED BY 'CarMotorAdmin1?';
+
+-- Otorgar todos los privilegios sobre la base de datos carmotors_db
+GRANT ALL PRIVILEGES ON carmotors_db.* TO 'Admin'@'localhost';
+
+-- Aplicar los cambios de privilegios
+FLUSH PRIVILEGES;
+
+
+
+

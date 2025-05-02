@@ -17,8 +17,8 @@ public class DatabaseConnection {
     private static DatabaseConnection instance;
     private Connection connection;
     private static final String URL = "jdbc:mysql://localhost:3306/carmotors_db?useSSL=false&allowPublicKeyRetrieval=true";
-    private static final String USER = "root";
-    private static final String PASSWORD = "campus2023";
+    private static final String USER = "Admin";
+    private static final String PASSWORD = "CarMotorAdmin1?";
 
     private DatabaseConnection() {
         try {
