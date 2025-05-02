@@ -14,7 +14,7 @@ public class SparePart {
 
     private int id;
     private String name;
-    private String type;
+    private String type; // Debería ser un enum, pero usaremos String por ahora con valores válidos
     private String brand;
     private String model;
     private int supplierId;
@@ -24,8 +24,7 @@ public class SparePart {
     private LocalDate expiryDate;
     private String status;
 
-    public SparePart(int id, String name, String type, String brand, String model, int supplierId,
-            int stock, int minStock, LocalDate entryDate, LocalDate expiryDate, String status) {
+    public SparePart(int id, String name, String type, String brand, String model, int supplierId, int stock, int minStock, LocalDate entryDate, LocalDate expiryDate, String status) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -39,6 +38,7 @@ public class SparePart {
         this.status = status;
     }
 
+    // Getters y Setters
     public int getId() {
         return id;
     }

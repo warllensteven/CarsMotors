@@ -24,6 +24,10 @@ public class Client {
         this.email = email;
     }
 
+    public Client(int i, String juan_Pérez, String juanemailcom, String string, String string0, String warllengmailcom) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public int getId() {
         return id;
     }
