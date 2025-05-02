@@ -4,10 +4,10 @@
  */
 package com.carmotors;
 
-import com.carmotors.interfaz.Customer;
-import com.carmotors.interfaz.Inventory;
-import com.carmotors.interfaz.Maintanence;
-import com.carmotors.interfaz.Stats;
+import com.carmotors.interfaz.customer.Customer;
+import com.carmotors.interfaz.inventory.Inventory;
+import com.carmotors.interfaz.maintanence.Maintanence;
+import com.carmotors.interfaz.stats.Stats;
 import com.carmotors.interfaz.Supplier;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
@@ -60,19 +60,20 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
         article = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.BorderLayout());
 
         bg.setLayout(new java.awt.BorderLayout());
 
-        content.setBackground(new java.awt.Color(255, 204, 153));
+        content.setBackground(new java.awt.Color(255, 255, 255));
 
-        Nav.setBackground(new java.awt.Color(255, 153, 51));
+        Nav.setBackground(new java.awt.Color(153, 153, 153));
 
         Title.setFont(new java.awt.Font("Waree", 1, 60)); // NOI18N
         Title.setText("CarMotors");
 
+        inventory.setBackground(new java.awt.Color(0, 0, 0));
         inventory.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        inventory.setText("Gestion inventario");
+        inventory.setForeground(new java.awt.Color(255, 255, 255));
+        inventory.setText("Gestion Inventario");
         inventory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inventoryActionPerformed(evt);
@@ -166,7 +167,7 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
                 .addContainerGap(145, Short.MAX_VALUE))
         );
 
-        article.setBackground(new java.awt.Color(0, 204, 153));
+        article.setBackground(new java.awt.Color(255, 255, 255));
         article.setPreferredSize(new java.awt.Dimension(589, 800));
         article.setLayout(new java.awt.BorderLayout());
 
