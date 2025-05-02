@@ -39,7 +39,7 @@ public class DAOTest {
     private static void testSparePartDAO() throws SQLException {
         SupplierDAO supplierDAO = SupplierDAO.getInstance();
         SparePartDAO sparePartDAO = SparePartDAO.getInstance();
-
+        
         // Crear (Insertar) un proveedor primero
         Supplier supplier = new Supplier(0, "Proveedor Bosch", "123456789", "contact@bosch.com", "Semanal");
         supplierDAO.add(supplier);
