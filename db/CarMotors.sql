@@ -242,14 +242,85 @@ CREATE INDEX idx_invoices_client ON invoices(client_id);
 CREATE INDEX idx_spare_part_lots_batch_code ON spare_part_lots(batch_code);
 CREATE INDEX idx_maintenance_services_technician ON maintenance_services(technician_id);
 
--- Crear el usuario 'Admin' accesible desde cualquier IP
-CREATE USER 'Admin'@'localhost' IDENTIFIED BY 'CarMotorAdmin1?';
+-- Crear el usuario 'Admin' accesible desde localhost
+CREATE USER 'AdminCar'@'localhost' IDENTIFIED BY 'CarMotorAdmin1?';
 
 -- Otorgar todos los privilegios sobre la base de datos carmotors_db
-GRANT ALL PRIVILEGES ON carmotors_db.* TO 'Admin'@'localhost';
+GRANT ALL PRIVILEGES ON carmotors_db.* TO 'AdminCar'@'localhost';
 
 -- Aplicar los cambios de privilegios
 FLUSH PRIVILEGES;
+
+
+
+
+
+-- 1. Tabla de historial de cambios de stock
+CREATE TABLE IF NOT EXISTS spare_part_stock_log (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    spare_part_id INT,
+    old_stock INT,
+    new_stock INT,
+    changed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (spare_part_id) REFERENCES spare_parts(id) ON DELETE CASCADE
+);
+
+-- 2. Trigger: registrar cambios de stock
+DELIMITER //
+CREATE TRIGGER trg_update_spare_part_stock
+BEFORE UPDATE ON spare_parts
+FOR EACH ROW
+BEGIN
+    IF NEW.stock != OLD.stock THEN
+        INSERT INTO spare_part_stock_log (spare_part_id, old_stock, new_stock)
+        VALUES (OLD.id, OLD.stock, NEW.stock);
+    END IF;
+END;
+//
+DELIMITER ;
+
+-- 3. Tabla para repuestos próximos a caducar
+CREATE TABLE IF NOT EXISTS spare_parts_expiring_soon (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    spare_part_id INT,
+    name VARCHAR(100),
+    expiry_date DATE,
+    days_remaining INT,
+    checked_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 4. Evento: revisar repuestos por caducar cada día
+DELIMITER //
+CREATE EVENT IF NOT EXISTS evt_check_expiring_spare_parts
+ON SCHEDULE EVERY 1 DAY
+DO
+BEGIN
+    DELETE FROM spare_parts_expiring_soon;
+    INSERT INTO spare_parts_expiring_soon (spare_part_id, name, expiry_date, days_remaining)
+    SELECT id, name, expiry_date, DATEDIFF(expiry_date, CURDATE())
+    FROM spare_parts
+    WHERE expiry_date IS NOT NULL AND DATEDIFF(expiry_date, CURDATE()) <= 15;
+END;
+//
+DELIMITER ;
+
+-- Habilitar el programador de eventos (si aún no está activo)
+SET GLOBAL event_scheduler = ON;
+
+-- 5. Trigger: registro automático en historial cuando se completa un servicio
+DELIMITER //
+CREATE TRIGGER trg_service_completed
+AFTER UPDATE ON maintenance_services
+FOR EACH ROW
+BEGIN
+    IF OLD.status != 'Completado' AND NEW.status = 'Completado' THEN
+        INSERT INTO service_history (vehicle_id, maintenance_service_id, date, description)
+        VALUES (NEW.vehicle_id, NEW.id, NOW(), NEW.description);
+    END IF;
+END;
+//
+DELIMITER ;
+
 
 
 
