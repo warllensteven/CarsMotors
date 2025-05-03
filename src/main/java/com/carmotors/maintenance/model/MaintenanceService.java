@@ -1,29 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.carmotors.maintenance.model;
 
-/**
- *
- * @author warle
- */
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class MaintenanceService {
-
     private int id;
     private int vehicleId;
     private String type;
     private String description;
     private double laborCost;
     private String status;
-    private LocalDate startDate;
-    private LocalDate endDate;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
     private int technicianId;
 
     public MaintenanceService(int id, int vehicleId, String type, String description, double laborCost,
-            String status, LocalDate startDate, LocalDate endDate, int technicianId) {
+            String status, LocalDateTime startDate, LocalDateTime endDate, int technicianId) {
         this.id = id;
         this.vehicleId = vehicleId;
         this.type = type;
@@ -35,7 +26,8 @@ public class MaintenanceService {
         this.technicianId = technicianId;
     }
 
-    public MaintenanceService(int vehicleId, String type, String description, double laborCost, String status, LocalDate startDate, LocalDate endDate, int technicianId) {
+    public MaintenanceService(int vehicleId, String type, String description, double laborCost,
+            String status, LocalDateTime startDate, LocalDateTime endDate, int technicianId) {
         this.vehicleId = vehicleId;
         this.type = type;
         this.description = description;
@@ -45,6 +37,8 @@ public class MaintenanceService {
         this.endDate = endDate;
         this.technicianId = technicianId;
     }
+
+    // Getters y setters
 
     public int getId() {
         return id;
@@ -94,19 +88,19 @@ public class MaintenanceService {
         this.status = status;
     }
 
-    public LocalDate getStartDate() {
+    public LocalDateTime getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(LocalDateTime startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDate getEndDate() {
+    public LocalDateTime getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
+    public void setEndDate(LocalDateTime endDate) {
         this.endDate = endDate;
     }
 

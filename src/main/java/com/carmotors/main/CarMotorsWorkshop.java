@@ -7,15 +7,18 @@ package com.carmotors.main;
 
 
 
-import com.carmotors.campaign.view.Campaign;
+
 import com.carmotors.client.view.Client;
-import com.carmotors.inspection.view.Inspection;
-import com.carmotors.inventory.view.Inventory;
+import com.carmotors.inventory.model.SparePart;
+
+import com.carmotors.inventory.view.GestionInvetory;
 import com.carmotors.maintenance.view.Maintanence;
 import com.carmotors.provider.view.Supplier;
 import com.carmotors.stats.view.stats;
 import java.awt.BorderLayout;
+
 import javax.swing.JPanel;
+
 
 /**
  *
@@ -29,7 +32,7 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
     public CarMotorsWorkshop() {
         initComponents();
         
-       Inventory p1 = new Inventory();
+       GestionInvetory p1 = new GestionInvetory();
 
        setResizable(false); // Deshabilita el redimensionamiento de la ventana
 
@@ -61,15 +64,14 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
         maintenance = new javax.swing.JButton();
         customer = new javax.swing.JButton();
         suppliers = new javax.swing.JButton();
-        campaign = new javax.swing.JButton();
         exit = new javax.swing.JButton();
         Stats = new javax.swing.JButton();
-        Inspection = new javax.swing.JButton();
         article = new javax.swing.JPanel();
 
         jToolBar1.setRollover(true);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 204, 204));
 
         bg.setLayout(new java.awt.BorderLayout());
 
@@ -78,7 +80,7 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
         Nav.setBackground(new java.awt.Color(153, 153, 153));
 
         Title.setFont(new java.awt.Font("Waree", 1, 60)); // NOI18N
-        Title.setText("CarMotors");
+        Title.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo-removebg-preview.png"))); // NOI18N
 
         inventory.setBackground(new java.awt.Color(0, 0, 0));
         inventory.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
@@ -121,17 +123,7 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
             }
         });
 
-        campaign.setBackground(new java.awt.Color(0, 0, 0));
-        campaign.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        campaign.setForeground(new java.awt.Color(255, 255, 255));
-        campaign.setText("Campañas y Citas");
-        campaign.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campaignActionPerformed(evt);
-            }
-        });
-
-        exit.setFont(new java.awt.Font("Liberation Sans", 0, 30)); // NOI18N
+        exit.setFont(new java.awt.Font("Liberation Sans", 0, 26)); // NOI18N
         exit.setText("X");
         exit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -154,16 +146,6 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
             }
         });
 
-        Inspection.setBackground(new java.awt.Color(0, 0, 0));
-        Inspection.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        Inspection.setForeground(new java.awt.Color(255, 255, 255));
-        Inspection.setText("Inspecciones Tecnicas");
-        Inspection.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InspectionActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout NavLayout = new javax.swing.GroupLayout(Nav);
         Nav.setLayout(NavLayout);
         NavLayout.setHorizontalGroup(
@@ -171,51 +153,38 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
             .addGroup(NavLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(customer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(suppliers, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(campaign, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(maintenance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(NavLayout.createSequentialGroup()
-                        .addComponent(exit)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NavLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(inventory, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Title, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addComponent(Stats, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(NavLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(Inspection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+                            .addComponent(exit)
+                            .addComponent(Title)
+                            .addComponent(inventory, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 12, Short.MAX_VALUE))
+                    .addGroup(NavLayout.createSequentialGroup()
+                        .addGroup(NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(Stats, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(suppliers, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(customer, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(maintenance, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 666, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         NavLayout.setVerticalGroup(
             NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(NavLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(exit)
-                .addGap(58, 58, 58)
+                .addGap(11, 11, 11)
                 .addComponent(Title)
-                .addGap(42, 42, 42)
+                .addGap(54, 54, 54)
                 .addComponent(inventory)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(maintenance)
                 .addGap(18, 18, 18)
                 .addComponent(customer)
                 .addGap(18, 18, 18)
                 .addComponent(suppliers)
                 .addGap(18, 18, 18)
-                .addComponent(campaign)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                 .addComponent(Stats)
-                .addGap(30, 30, 30))
-            .addGroup(NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NavLayout.createSequentialGroup()
-                    .addContainerGap(507, Short.MAX_VALUE)
-                    .addComponent(Inspection)
-                    .addGap(89, 89, 89)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         article.setBackground(new java.awt.Color(255, 255, 255));
@@ -228,17 +197,14 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contentLayout.createSequentialGroup()
                 .addComponent(Nav, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(article, javax.swing.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(article, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(article, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
             .addComponent(Nav, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contentLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(article, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
         );
 
         bg.add(content, java.awt.BorderLayout.CENTER);
@@ -249,7 +215,7 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void inventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryActionPerformed
-        Inventory p1 = new Inventory();
+        GestionInvetory p1 = new GestionInvetory();
         ShowPanel(p1);
     }//GEN-LAST:event_inventoryActionPerformed
 
@@ -258,11 +224,6 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
         ShowPanel(p2);
         
     }//GEN-LAST:event_maintenanceActionPerformed
-
-    private void campaignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campaignActionPerformed
-        Campaign p5 = new Campaign();
-        ShowPanel(p5);
-    }//GEN-LAST:event_campaignActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
     int confirm = javax.swing.JOptionPane.showConfirmDialog(
@@ -298,11 +259,6 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
         
     }//GEN-LAST:event_StatsActionPerformed
 
-    private void InspectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InspectionActionPerformed
-        Inspection p6 = new Inspection();
-        ShowPanel(p6);
-    }//GEN-LAST:event_InspectionActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -337,16 +293,15 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
                 new CarMotorsWorkshop().setVisible(true);
             }
         });
-    }
+        }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Inspection;
     private javax.swing.JPanel Nav;
     private javax.swing.JButton Stats;
     private javax.swing.JLabel Title;
     private javax.swing.JPanel article;
     private javax.swing.JPanel bg;
-    private javax.swing.JButton campaign;
     private javax.swing.JPanel content;
     private javax.swing.JButton customer;
     private javax.swing.JButton exit;

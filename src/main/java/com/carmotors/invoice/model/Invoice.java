@@ -1,28 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.carmotors.invoice.model;
 
-/**
- *
- * @author warle
- */
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Invoice {
 
     private int id;
     private int clientId;
     private int maintenanceServiceId;
-    private LocalDate issueDate;
+    private LocalDateTime issueDate;
     private double total;
     private String cufe;
     private String qrCode;
     private String status;
+    private DiscountStrategy discountStrategy;  // Añadido para el descuento
 
-    public Invoice(int id, int clientId, int maintenanceServiceId, LocalDate issueDate, double total,
-            String cufe, String qrCode, String status) {
+    public Invoice(int id, int clientId, int maintenanceServiceId, LocalDateTime issueDate, double total,
+                   String cufe, String qrCode, String status, DiscountStrategy discountStrategy) {
         this.id = id;
         this.clientId = clientId;
         this.maintenanceServiceId = maintenanceServiceId;
@@ -31,9 +24,11 @@ public class Invoice {
         this.cufe = cufe;
         this.qrCode = qrCode;
         this.status = status;
+        this.discountStrategy = discountStrategy;  // Recibe el descuento al crear la factura
     }
 
-    public Invoice(int clientId, int maintenanceServiceId, LocalDate issueDate, double total, String cufe, String qrCode, String status) {
+    public Invoice(int clientId, int maintenanceServiceId, LocalDateTime issueDate, double total, 
+                   String cufe, String qrCode, String status, DiscountStrategy discountStrategy) {
         this.clientId = clientId;
         this.maintenanceServiceId = maintenanceServiceId;
         this.issueDate = issueDate;
@@ -41,7 +36,12 @@ public class Invoice {
         this.cufe = cufe;
         this.qrCode = qrCode;
         this.status = status;
+        this.discountStrategy = discountStrategy;  // Recibe el descuento al crear la factura
     }
+    
+    
+
+    // Getters and Setters
 
     public int getId() {
         return id;
@@ -67,11 +67,11 @@ public class Invoice {
         this.maintenanceServiceId = maintenanceServiceId;
     }
 
-    public LocalDate getIssueDate() {
+    public LocalDateTime getIssueDate() {
         return issueDate;
     }
 
-    public void setIssueDate(LocalDate issueDate) {
+    public void setIssueDate(LocalDateTime issueDate) {
         this.issueDate = issueDate;
     }
 
@@ -105,5 +105,20 @@ public class Invoice {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public DiscountStrategy getDiscountStrategy() {
+        return discountStrategy;
+    }
+
+    public void setDiscountStrategy(DiscountStrategy discountStrategy) {
+        this.discountStrategy = discountStrategy;
+    }
+
+    // Método para aplicar el descuento
+    public void applyDiscount() {
+        if (discountStrategy != null) {
+            this.total = discountStrategy.applyDiscount(this.total);
+        }
     }
 }

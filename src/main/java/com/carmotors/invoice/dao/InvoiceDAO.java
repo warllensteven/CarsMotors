@@ -1,20 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.carmotors.invoice.dao;
 
-/**
- *
- * @author warle
- */
 import com.carmotors.database.DatabaseConnection;
 import com.carmotors.invoice.model.Invoice;
+import com.carmotors.invoice.model.DiscountStrategy;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,10 +29,14 @@ public class InvoiceDAO {
         String query = "INSERT INTO invoices (client_id, maintenance_service_id, issue_date, total, cufe, qr_code, status) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseConnection.getInstance().getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
+            
+            // Primero aplicamos el descuento antes de continuar
+            invoice.applyDiscount();  // Aplica el descuento a la factura antes de insertarla
+
             stmt.setInt(1, invoice.getClientId());
             stmt.setInt(2, invoice.getMaintenanceServiceId());
             stmt.setObject(3, invoice.getIssueDate());
-            stmt.setDouble(4, invoice.getTotal());
+            stmt.setDouble(4, invoice.getTotal());  // Total con descuento
             stmt.setString(5, invoice.getCufe());
             stmt.setString(6, invoice.getQrCode());
             stmt.setString(7, invoice.getStatus());
@@ -58,11 +55,12 @@ public class InvoiceDAO {
                         rs.getInt("id"),
                         rs.getInt("client_id"),
                         rs.getInt("maintenance_service_id"),
-                        rs.getObject("issue_date", LocalDate.class),
+                        rs.getObject("issue_date", LocalDateTime.class),
                         rs.getDouble("total"),
                         rs.getString("cufe"),
                         rs.getString("qr_code"),
-                        rs.getString("status")
+                        rs.getString("status"),
+                        null  // Descuento no se guarda en la base de datos, es un valor calculado
                     );
                 }
             }
@@ -81,11 +79,12 @@ public class InvoiceDAO {
                     rs.getInt("id"),
                     rs.getInt("client_id"),
                     rs.getInt("maintenance_service_id"),
-                    rs.getObject("issue_date", LocalDate.class),
+                    rs.getObject("issue_date", LocalDateTime.class),
                     rs.getDouble("total"),
                     rs.getString("cufe"),
                     rs.getString("qr_code"),
-                    rs.getString("status")
+                    rs.getString("status"),
+                    null  // Descuento no se guarda en la base de datos, es un valor calculado
                 );
                 invoices.add(invoice);
             }
