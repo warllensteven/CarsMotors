@@ -28,6 +28,14 @@ public class SupplierProduct {
         this.unitPrice = unitPrice;
     }
 
+    public SupplierProduct(int supplierId, int sparePartId, LocalDate supplyDate, int quantity, double unitPrice) {
+        this.supplierId = supplierId;
+        this.sparePartId = sparePartId;
+        this.supplyDate = supplyDate;
+        this.quantity = quantity;
+        this.unitPrice = unitPrice;
+    }
+
     public int getId() {
         return id;
     }

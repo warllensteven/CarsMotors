@@ -26,6 +26,13 @@ public class PurchaseOrder {
         this.totalCost = totalCost;
     }
 
+    public PurchaseOrder(int supplierId, LocalDate orderDate, String status, double totalCost) {
+        this.supplierId = supplierId;
+        this.orderDate = orderDate;
+        this.status = status;
+        this.totalCost = totalCost;
+    }
+
     public int getId() {
         return id;
     }

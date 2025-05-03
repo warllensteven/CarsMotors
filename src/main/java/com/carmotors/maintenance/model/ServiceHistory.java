@@ -26,6 +26,13 @@ public class ServiceHistory {
         this.description = description;
     }
 
+    public ServiceHistory(int vehicleId, int maintenanceServiceId, LocalDate date, String description) {
+        this.vehicleId = vehicleId;
+        this.maintenanceServiceId = maintenanceServiceId;
+        this.date = date;
+        this.description = description;
+    }
+
     public int getId() {
         return id;
     }

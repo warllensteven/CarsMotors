@@ -24,6 +24,13 @@ public class Supplier {
         this.visitFrequency = visitFrequency;
     }
 
+    public Supplier(String name, String nit, String contact, String visitFrequency) {
+        this.name = name;
+        this.nit = nit;
+        this.contact = contact;
+        this.visitFrequency = visitFrequency;
+    }
+
     public int getId() {
         return id;
     }

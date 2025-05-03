@@ -10,7 +10,7 @@ package com.carmotors.client.model;
  */
 public class Vehicle {
 
-    private int id;
+        private int id;
     private int clientId;
     private String brand;
     private String model;
@@ -25,7 +25,27 @@ public class Vehicle {
         this.plate = plate;
         this.type = type;
     }
+    
+    // Constructor sin ID
+public Vehicle(int clientId, String brand, String model, String plate, String type) {
+    this.clientId = clientId;
+    this.brand = brand;
+    this.model = model;
+    this.plate = plate;
+    this.type = type;
+}
 
+// Constructor sin clientId ni id (no recomendado si clientId es obligatorio)
+public Vehicle(String brand, String model, String plate, String type) {
+    this.brand = brand;
+    this.model = model;
+    this.plate = plate;
+    this.type = type;
+}
+
+
+
+    // Getters and setters
     public int getId() {
         return id;
     }

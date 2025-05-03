@@ -26,6 +26,14 @@ public class InvoiceDetail {
         this.subtotal = subtotal;
     }
 
+    public InvoiceDetail(int invoiceId, String description, int quantity, double unitPrice, double subtotal) {
+        this.invoiceId = invoiceId;
+        this.description = description;
+        this.quantity = quantity;
+        this.unitPrice = unitPrice;
+        this.subtotal = subtotal;
+    }
+
     public int getId() {
         return id;
     }

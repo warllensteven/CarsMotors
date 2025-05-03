@@ -23,6 +23,12 @@ public class InspectionSchedule {
         this.reminderSent = reminderSent;
     }
 
+    public InspectionSchedule(int vehicleId, LocalDate nextInspectionDate, String reminderSent) {
+        this.vehicleId = vehicleId;
+        this.nextInspectionDate = nextInspectionDate;
+        this.reminderSent = reminderSent;
+    }
+
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
     public int getVehicleId() { return vehicleId; }

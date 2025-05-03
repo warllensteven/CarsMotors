@@ -22,6 +22,13 @@ public class ServiceDetail {
         this.quantityUsed = quantityUsed;
     }
 
+    public ServiceDetail(int maintenanceServiceId, int sparePartId, int quantityUsed) {
+        this.maintenanceServiceId = maintenanceServiceId;
+        this.sparePartId = sparePartId;
+        this.quantityUsed = quantityUsed;
+    }
+    
+
     public int getId() {
         return id;
     }

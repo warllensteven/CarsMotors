@@ -35,6 +35,17 @@ public class MaintenanceService {
         this.technicianId = technicianId;
     }
 
+    public MaintenanceService(int vehicleId, String type, String description, double laborCost, String status, LocalDate startDate, LocalDate endDate, int technicianId) {
+        this.vehicleId = vehicleId;
+        this.type = type;
+        this.description = description;
+        this.laborCost = laborCost;
+        this.status = status;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.technicianId = technicianId;
+    }
+
     public int getId() {
         return id;
     }

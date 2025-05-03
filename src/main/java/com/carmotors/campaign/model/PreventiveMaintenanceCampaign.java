@@ -29,6 +29,16 @@ public class PreventiveMaintenanceCampaign {
         this.discountPercentage = discountPercentage;
     }
 
+    public PreventiveMaintenanceCampaign(String name, LocalDate startDate, LocalDate endDate, String description, double discountPercentage) {
+        this.name = name;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.description = description;
+        this.discountPercentage = discountPercentage;
+    }
+    
+    
+
     public int getId() {
         return id;
     }

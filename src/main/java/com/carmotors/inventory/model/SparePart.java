@@ -37,6 +37,19 @@ public class SparePart {
         this.expiryDate = expiryDate;
         this.status = status;
     }
+    public SparePart(String name, String type, String brand, String model, int supplierId, int stock, int minStock, LocalDate entryDate, LocalDate expiryDate, String status) {
+    this.name = name;
+    this.type = type;
+    this.brand = brand;
+    this.model = model;
+    this.supplierId = supplierId;
+    this.stock = stock;
+    this.minStock = minStock;
+    this.entryDate = entryDate;
+    this.expiryDate = expiryDate;
+    this.status = status;
+}
+
 
     // Getters y Setters
     public int getId() {

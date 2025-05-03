@@ -16,6 +16,14 @@ public class Client {
     private String phone;
     private String email;
 
+    public Client(String name, String identification, String phone, String email) {
+        
+        this.name = name;
+        this.identification = identification;
+        this.phone = phone;
+        this.email = email;
+    }
+
     public Client(int id, String name, String identification, String phone, String email) {
         this.id = id;
         this.name = name;
@@ -24,9 +32,13 @@ public class Client {
         this.email = email;
     }
 
-    public Client(int i, String juan_Pérez, String juanemailcom, String string, String string0, String warllengmailcom) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Client(String name, String identification, String phone) {
+        this.name = name;
+        this.identification = identification;
+        this.phone = phone;
     }
+
+
 
     public int getId() {
         return id;

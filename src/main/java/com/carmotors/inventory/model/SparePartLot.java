@@ -28,6 +28,14 @@ public class SparePartLot {
         this.supplierId = supplierId;
     }
 
+    public SparePartLot(int sparePartId, String batchCode, LocalDate entryDate, int quantity, int supplierId) {
+        this.sparePartId = sparePartId;
+        this.batchCode = batchCode;
+        this.entryDate = entryDate;
+        this.quantity = quantity;
+        this.supplierId = supplierId;
+    }
+
     public int getId() {
         return id;
     }

@@ -65,9 +65,7 @@ public class VehicleDAO {
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     return new Vehicle(
-                        rs.getInt("id"),
-                        rs.getInt("client_id"),
-                        rs.getString("brand"),
+                                                rs.getString("brand"),
                         rs.getString("model"),
                         rs.getString("plate"),
                         rs.getString("type")
@@ -86,9 +84,7 @@ public class VehicleDAO {
              ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
                 Vehicle vehicle = new Vehicle(
-                    rs.getInt("id"),
-                    rs.getInt("client_id"),
-                    rs.getString("brand"),
+                                        rs.getString("brand"),
                     rs.getString("model"),
                     rs.getString("plate"),
                     rs.getString("type")

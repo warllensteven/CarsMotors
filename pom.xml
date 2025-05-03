@@ -8,7 +8,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <exec.mainClass>com.carmotors.test.DAOTest</exec.mainClass>
+        <exec.mainClass>com.carmotors.main.CarMotorsWorkshop</exec.mainClass>
     </properties>
 
     <dependencies>
@@ -38,7 +38,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.0</version>
                 <configuration>
-                    <mainClass>com.carmotors.test.DAOTest</mainClass>
+                    <mainClass>com.carmotors.main.CarMotorsWorkshop</mainClass>
                 </configuration>
             </plugin>
         </plugins>

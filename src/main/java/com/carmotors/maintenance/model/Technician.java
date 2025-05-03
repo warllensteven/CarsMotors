@@ -22,6 +22,12 @@ public class Technician {
         this.contact = contact;
     }
 
+    public Technician(String name, String specialty, String contact) {
+        this.name = name;
+        this.specialty = specialty;
+        this.contact = contact;
+    }
+
     public int getId() {
         return id;
     }

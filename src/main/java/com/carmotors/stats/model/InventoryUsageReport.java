@@ -10,7 +10,7 @@ package com.carmotors.stats.model;
  */
 public class InventoryUsageReport {
       private String sparePartName;
-    private int quantityUsed;
+        private int quantityUsed;
 
     public InventoryUsageReport(String sparePartName, int quantityUsed) {
         this.sparePartName = sparePartName;

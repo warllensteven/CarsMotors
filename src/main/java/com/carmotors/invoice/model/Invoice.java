@@ -33,6 +33,16 @@ public class Invoice {
         this.status = status;
     }
 
+    public Invoice(int clientId, int maintenanceServiceId, LocalDate issueDate, double total, String cufe, String qrCode, String status) {
+        this.clientId = clientId;
+        this.maintenanceServiceId = maintenanceServiceId;
+        this.issueDate = issueDate;
+        this.total = total;
+        this.cufe = cufe;
+        this.qrCode = qrCode;
+        this.status = status;
+    }
+
     public int getId() {
         return id;
     }

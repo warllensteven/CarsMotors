@@ -25,6 +25,14 @@ public class TechnicalInspection {
         this.notes = notes;
     }
 
+    public TechnicalInspection(int vehicleId, LocalDate inspectionDate, String result, String notes) {
+        this.vehicleId = vehicleId;
+        this.inspectionDate = inspectionDate;
+        this.result = result;
+        this.notes = notes;
+    }
+    
+
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
     public int getVehicleId() { return vehicleId; }

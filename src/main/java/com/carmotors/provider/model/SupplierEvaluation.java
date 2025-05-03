@@ -31,6 +31,16 @@ public class SupplierEvaluation {
         this.overallScore = overallScore;
     }
 
+    public SupplierEvaluation(int supplierId, LocalDate evaluationDate, int punctualityScore, int qualityScore, int costScore, int overallScore) {
+        this.supplierId = supplierId;
+        this.evaluationDate = evaluationDate;
+        this.punctualityScore = punctualityScore;
+        this.qualityScore = qualityScore;
+        this.costScore = costScore;
+        this.overallScore = overallScore;
+    }
+    
+
     public int getId() {
         return id;
     }
