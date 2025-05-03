@@ -23,7 +23,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class DAOTest {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         try {
             testSparePartDAO();
             testSupplierDAO();
@@ -45,7 +45,24 @@ public class DAOTest {
         supplierDAO.add(supplier);
         System.out.println("Supplier agregado con ID: " + supplier.getId());
 
-        // Crear (Insertar) un repuesto con el supplier_id del proveedor recién creado
+        // Crear (Insertar) un r public static void main(String[] args) {
+        try {
+            testSparePartDAO();
+            testSupplierDAO();
+            testVehicleDAO();
+            System.out.println("Todas las pruebas completadas exitosamente.");
+        } catch (SQLException e) {
+            System.err.println("Error durante las pruebas: " + e.getMessage());
+        } finally {
+            DatabaseConnection.getInstance().closeConnection();
+        }
+    }
+
+    private static void testSparePartDAO() throws SQLException {
+        SupplierDAO supplierDAO = SupplierDAO.getInstance();
+        SparePartDAO sparePartDAO = SparePartDAO.getInstance();
+        
+        // Crear (Iepuesto con el supplier_id del proveedor recién creado
         SparePart sparePart = new SparePart(0, "Frenos Delanteros", "Mecánico", "Bosch", "X123", supplier.getId(), 10, 5, LocalDate.now(), LocalDate.now().plusYears(1), "Disponible");
         sparePartDAO.add(sparePart);
         System.out.println("SparePart agregado con ID: " + sparePart.getId());
@@ -126,5 +143,5 @@ public class DAOTest {
         vehicleDAO.delete(vehicle.getId());
         clientDAO.delete(client.getId());
         System.out.println("Vehicle y Client eliminados. Nuevo total Vehicles: " + vehicleDAO.getAll().size());
-    }
+    }*/
 }

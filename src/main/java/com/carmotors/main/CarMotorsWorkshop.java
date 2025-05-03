@@ -2,13 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.carmotors;
+package com.carmotors.main;
 
-import com.carmotors.interfaz.customer.Customer;
-import com.carmotors.interfaz.inventory.Inventory;
-import com.carmotors.interfaz.maintanence.Maintanence;
-import com.carmotors.interfaz.stats.Stats;
-import com.carmotors.interfaz.Supplier;
+
+
+
+import com.carmotors.campaign.view.Campaign;
+import com.carmotors.client.view.Client;
+import com.carmotors.inspection.view.Inspection;
+import com.carmotors.inventory.view.Inventory;
+import com.carmotors.maintenance.view.Maintanence;
+import com.carmotors.provider.view.Supplier;
+import com.carmotors.stats.view.stats;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
@@ -47,6 +52,7 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jToolBar1 = new javax.swing.JToolBar();
         bg = new javax.swing.JPanel();
         content = new javax.swing.JPanel();
         Nav = new javax.swing.JPanel();
@@ -55,9 +61,13 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
         maintenance = new javax.swing.JButton();
         customer = new javax.swing.JButton();
         suppliers = new javax.swing.JButton();
-        Stats = new javax.swing.JButton();
+        campaign = new javax.swing.JButton();
         exit = new javax.swing.JButton();
+        Stats = new javax.swing.JButton();
+        Inspection = new javax.swing.JButton();
         article = new javax.swing.JPanel();
+
+        jToolBar1.setRollover(true);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,7 +90,9 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
             }
         });
 
+        maintenance.setBackground(new java.awt.Color(0, 0, 0));
         maintenance.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        maintenance.setForeground(new java.awt.Color(255, 255, 255));
         maintenance.setText("Mantenimiento y Reparaciones");
         maintenance.setActionCommand("");
         maintenance.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +101,9 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
             }
         });
 
+        customer.setBackground(new java.awt.Color(0, 0, 0));
         customer.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        customer.setForeground(new java.awt.Color(255, 255, 255));
         customer.setText("Clientes y Facturacion");
         customer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,7 +111,9 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
             }
         });
 
+        suppliers.setBackground(new java.awt.Color(0, 0, 0));
         suppliers.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        suppliers.setForeground(new java.awt.Color(255, 255, 255));
         suppliers.setText("Proveedores y Compras");
         suppliers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,11 +121,13 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
             }
         });
 
-        Stats.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
-        Stats.setText("Reportes y Estadisticas");
-        Stats.addActionListener(new java.awt.event.ActionListener() {
+        campaign.setBackground(new java.awt.Color(0, 0, 0));
+        campaign.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        campaign.setForeground(new java.awt.Color(255, 255, 255));
+        campaign.setText("Campañas y Citas");
+        campaign.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                StatsActionPerformed(evt);
+                campaignActionPerformed(evt);
             }
         });
 
@@ -126,6 +144,26 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
             }
         });
 
+        Stats.setBackground(new java.awt.Color(0, 0, 0));
+        Stats.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        Stats.setForeground(new java.awt.Color(255, 255, 255));
+        Stats.setText("Reportes y Estadisticas");
+        Stats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StatsActionPerformed(evt);
+            }
+        });
+
+        Inspection.setBackground(new java.awt.Color(0, 0, 0));
+        Inspection.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        Inspection.setForeground(new java.awt.Color(255, 255, 255));
+        Inspection.setText("Inspecciones Tecnicas");
+        Inspection.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InspectionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout NavLayout = new javax.swing.GroupLayout(Nav);
         Nav.setLayout(NavLayout);
         NavLayout.setHorizontalGroup(
@@ -135,7 +173,7 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
                 .addGroup(NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(customer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(suppliers, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Stats, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(campaign, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(maintenance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(NavLayout.createSequentialGroup()
                         .addComponent(exit)
@@ -144,8 +182,14 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(inventory, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Title, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(Title, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addComponent(Stats, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(NavLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(Inspection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         NavLayout.setVerticalGroup(
             NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,8 +207,15 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(suppliers)
                 .addGap(18, 18, 18)
+                .addComponent(campaign)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                 .addComponent(Stats)
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
+            .addGroup(NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NavLayout.createSequentialGroup()
+                    .addContainerGap(507, Short.MAX_VALUE)
+                    .addComponent(Inspection)
+                    .addGap(89, 89, 89)))
         );
 
         article.setBackground(new java.awt.Color(255, 255, 255));
@@ -208,10 +259,10 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
         
     }//GEN-LAST:event_maintenanceActionPerformed
 
-    private void StatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StatsActionPerformed
-        Stats p3 = new Stats();
-        ShowPanel(p3);
-    }//GEN-LAST:event_StatsActionPerformed
+    private void campaignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campaignActionPerformed
+        Campaign p5 = new Campaign();
+        ShowPanel(p5);
+    }//GEN-LAST:event_campaignActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
     int confirm = javax.swing.JOptionPane.showConfirmDialog(
@@ -228,18 +279,29 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
     }//GEN-LAST:event_exitActionPerformed
 
     private void customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerActionPerformed
-        Customer p4 = new Customer();
-        ShowPanel(p4);
+        Client p3 = new Client();
+        ShowPanel(p3);
     }//GEN-LAST:event_customerActionPerformed
 
     private void suppliersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suppliersActionPerformed
-        Supplier p5 = new Supplier();
-        ShowPanel(p5);
+        Supplier p4 = new Supplier();
+        ShowPanel(p4);
     }//GEN-LAST:event_suppliersActionPerformed
 
     private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_exitMouseClicked
+
+    private void StatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StatsActionPerformed
+        stats p7 = new stats();
+        ShowPanel(p7);
+        
+    }//GEN-LAST:event_StatsActionPerformed
+
+    private void InspectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InspectionActionPerformed
+        Inspection p6 = new Inspection();
+        ShowPanel(p6);
+    }//GEN-LAST:event_InspectionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -278,15 +340,18 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Inspection;
     private javax.swing.JPanel Nav;
     private javax.swing.JButton Stats;
     private javax.swing.JLabel Title;
     private javax.swing.JPanel article;
     private javax.swing.JPanel bg;
+    private javax.swing.JButton campaign;
     private javax.swing.JPanel content;
     private javax.swing.JButton customer;
     private javax.swing.JButton exit;
     private javax.swing.JButton inventory;
+    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JButton maintenance;
     private javax.swing.JButton suppliers;
     // End of variables declaration//GEN-END:variables
