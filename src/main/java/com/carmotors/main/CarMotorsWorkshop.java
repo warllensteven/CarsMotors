@@ -4,21 +4,14 @@
  */
 package com.carmotors.main;
 
-
-
-
-
 import com.carmotors.client.view.Client;
-
 
 import com.carmotors.inventory.view.GestionInvetory;
 import com.carmotors.maintenance.view.Maintanence;
 import com.carmotors.provider.view.Supplier;
 import com.carmotors.stats.view.stats;
 import java.awt.BorderLayout;
-
 import javax.swing.JPanel;
-
 
 /**
  *
@@ -31,18 +24,16 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
      */
     public CarMotorsWorkshop() {
         initComponents();
-        
-       GestionInvetory p1 = new GestionInvetory();
+        setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
 
-       setResizable(false); // Deshabilita el redimensionamiento de la ventana
 
-       
     }
-    
-    private void ShowPanel(JPanel p){
+
+    private void ShowPanel(JPanel p) {
         p.setLocation(0, 0);
         article.removeAll();
-        article.add(p,BorderLayout.CENTER);
+        article.setLayout(new BorderLayout());  // Esto asegura el centrado
+        article.add(p);    // Este es correcto
         article.revalidate();
         article.repaint();
     }
@@ -77,6 +68,7 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
         bg.setLayout(new java.awt.BorderLayout());
 
         content.setBackground(new java.awt.Color(255, 255, 255));
+        content.setLayout(new javax.swing.BoxLayout(content, javax.swing.BoxLayout.LINE_AXIS));
 
         Nav.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -153,29 +145,30 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
             NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(NavLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(NavLayout.createSequentialGroup()
-                        .addGroup(NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(Stats, javax.swing.GroupLayout.DEFAULT_SIZE, 821, Short.MAX_VALUE)
+                    .addGroup(NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(suppliers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(customer, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(maintenance, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, NavLayout.createSequentialGroup()
                             .addComponent(exit)
-                            .addComponent(Title)
-                            .addComponent(inventory, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 12, Short.MAX_VALUE))
-                    .addGroup(NavLayout.createSequentialGroup()
-                        .addGroup(NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(Stats, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(suppliers, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(customer, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(maintenance, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 666, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(Title, javax.swing.GroupLayout.DEFAULT_SIZE, 778, Short.MAX_VALUE))
+                        .addComponent(inventory, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(0, 4, Short.MAX_VALUE))
         );
         NavLayout.setVerticalGroup(
             NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(NavLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(exit)
-                .addGap(11, 11, 11)
-                .addComponent(Title)
-                .addGap(54, 54, 54)
+                .addGroup(NavLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(NavLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(exit))
+                    .addGroup(NavLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(inventory)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(maintenance)
@@ -188,25 +181,11 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        article.setBackground(new java.awt.Color(255, 255, 255));
-        article.setPreferredSize(new java.awt.Dimension(589, 800));
-        article.setLayout(new java.awt.BorderLayout());
+        content.add(Nav);
 
-        javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
-        content.setLayout(contentLayout);
-        contentLayout.setHorizontalGroup(
-            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(contentLayout.createSequentialGroup()
-                .addComponent(Nav, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(article, javax.swing.GroupLayout.PREFERRED_SIZE, 656, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        contentLayout.setVerticalGroup(
-            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(article, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
-            .addComponent(Nav, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        article.setBackground(new java.awt.Color(153, 153, 0));
+        article.setLayout(new java.awt.BorderLayout());
+        content.add(article);
 
         bg.add(content, java.awt.BorderLayout.CENTER);
 
@@ -223,21 +202,21 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
     private void maintenanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maintenanceActionPerformed
         Maintanence p2 = new Maintanence();
         ShowPanel(p2);
-        
+
     }//GEN-LAST:event_maintenanceActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
-    int confirm = javax.swing.JOptionPane.showConfirmDialog(
-        this,
-        "¿Estás seguro de que quieres salir?",
-        "Confirmar salida",
-        javax.swing.JOptionPane.YES_NO_OPTION,
-        javax.swing.JOptionPane.WARNING_MESSAGE
-    );
+        int confirm = javax.swing.JOptionPane.showConfirmDialog(
+                this,
+                "¿Estás seguro de que quieres salir?",
+                "Confirmar salida",
+                javax.swing.JOptionPane.YES_NO_OPTION,
+                javax.swing.JOptionPane.WARNING_MESSAGE
+        );
 
-    if (confirm == javax.swing.JOptionPane.YES_OPTION) {
-        System.exit(0);
-    }
+        if (confirm == javax.swing.JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
     }//GEN-LAST:event_exitActionPerformed
 
     private void customerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerActionPerformed
@@ -257,7 +236,7 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
     private void StatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StatsActionPerformed
         stats p7 = new stats();
         ShowPanel(p7);
-        
+
     }//GEN-LAST:event_StatsActionPerformed
 
     /**
@@ -294,7 +273,7 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
                 new CarMotorsWorkshop().setVisible(true);
             }
         });
-        }
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

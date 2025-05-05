@@ -20,8 +20,6 @@ public class GestionInvetory extends javax.swing.JPanel {
     public GestionInvetory() {
         initComponents();
         content.setLayout(new BorderLayout());
-   
-
 
     }
 
@@ -41,6 +39,8 @@ public class GestionInvetory extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         sparePart = new javax.swing.JButton();
         content = new javax.swing.JPanel();
+
+        setLayout(new java.awt.BorderLayout());
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -90,25 +90,20 @@ public class GestionInvetory extends javax.swing.JPanel {
         ArticleLayout.setHorizontalGroup(
             ArticleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ArticleLayout.createSequentialGroup()
-                .addGroup(ArticleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ArticleLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(inventoryList, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sparePart, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(report, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ArticleLayout.createSequentialGroup()
-                        .addGap(148, 148, 148)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(ArticleLayout.createSequentialGroup()
+                .addComponent(inventoryList, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sparePart, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(report, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE))
         );
         ArticleLayout.setVerticalGroup(
             ArticleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ArticleLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addGroup(ArticleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inventoryList)
                     .addComponent(report)
@@ -116,7 +111,7 @@ public class GestionInvetory extends javax.swing.JPanel {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        content.setBackground(new java.awt.Color(255, 255, 0));
+        content.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
@@ -147,18 +142,7 @@ public class GestionInvetory extends javax.swing.JPanel {
                 .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        add(bg, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     private void inventoryListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryListActionPerformed
@@ -170,7 +154,8 @@ public class GestionInvetory extends javax.swing.JPanel {
     private void ShowPanel(JPanel p) {
         p.setLocation(0, 0);
         content.removeAll();
-        content.add(p, BorderLayout.CENTER);
+        content.setLayout(new BorderLayout()); // Asegúrate de que usa BorderLayout
+        content.add(p);   // No uses BorderLayout.WEST aquí
         content.revalidate();
         content.repaint();
     }
