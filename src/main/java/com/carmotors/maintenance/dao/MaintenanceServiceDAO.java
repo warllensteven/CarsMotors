@@ -1,15 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.carmotors.maintenance.dao;
 
-/**
- *
- * @author warle
- */
 import com.carmotors.database.DatabaseConnection;
 import com.carmotors.maintenance.model.MaintenanceService;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -33,17 +26,21 @@ public class MaintenanceServiceDAO {
     }
 
     public void add(MaintenanceService service) throws SQLException {
-        String query = "INSERT INTO maintenance_services (vehicle_id, type, description, labor_cost, status, start_date, end_date, technician_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO maintenance_services (idClient, vehicle_id, type, description, labor_cost, status, start_date, end_date, technician_id) " +
+                       "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseConnection.getInstance().getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
-            stmt.setInt(1, service.getVehicleId());
-            stmt.setString(2, service.getType());
-            stmt.setString(3, service.getDescription());
-            stmt.setDouble(4, service.getLaborCost());
-            stmt.setString(5, service.getStatus());
-            stmt.setObject(6, service.getStartDate());
-            stmt.setObject(7, service.getEndDate());
-            stmt.setInt(8, service.getTechnicianId());
+
+            stmt.setInt(1, service.getIdClient());
+            stmt.setInt(2, service.getVehicleId());
+            stmt.setString(3, service.getType());
+            stmt.setString(4, service.getDescription());
+            stmt.setDouble(5, service.getLaborCost());
+            stmt.setString(6, service.getStatus());
+            stmt.setObject(7, service.getStartDate());
+            stmt.setObject(8, service.getEndDate());
+            stmt.setInt(9, service.getTechnicianId());
+
             stmt.executeUpdate();
         }
     }
@@ -57,6 +54,7 @@ public class MaintenanceServiceDAO {
                 if (rs.next()) {
                     return new MaintenanceService(
                         rs.getInt("id"),
+                        rs.getInt("idClient"),
                         rs.getInt("vehicle_id"),
                         rs.getString("type"),
                         rs.getString("description"),
@@ -81,6 +79,7 @@ public class MaintenanceServiceDAO {
             while (rs.next()) {
                 MaintenanceService service = new MaintenanceService(
                     rs.getInt("id"),
+                    rs.getInt("idClient"),
                     rs.getInt("vehicle_id"),
                     rs.getString("type"),
                     rs.getString("description"),
@@ -97,18 +96,21 @@ public class MaintenanceServiceDAO {
     }
 
     public void update(MaintenanceService service) throws SQLException {
-        String query = "UPDATE maintenance_services SET vehicle_id = ?, type = ?, description = ?, labor_cost = ?, status = ?, start_date = ?, end_date = ?, technician_id = ? WHERE id = ?";
+        String query = "UPDATE maintenance_services SET idClient = ?, vehicle_id = ?, type = ?, description = ?, labor_cost = ?, status = ?, start_date = ?, end_date = ?, technician_id = ? WHERE id = ?";
         try (Connection conn = DatabaseConnection.getInstance().getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
-            stmt.setInt(1, service.getVehicleId());
-            stmt.setString(2, service.getType());
-            stmt.setString(3, service.getDescription());
-            stmt.setDouble(4, service.getLaborCost());
-            stmt.setString(5, service.getStatus());
-            stmt.setObject(6, service.getStartDate());
-            stmt.setObject(7, service.getEndDate());
-            stmt.setInt(8, service.getTechnicianId());
-            stmt.setInt(9, service.getId());
+
+            stmt.setInt(1, service.getIdClient());
+            stmt.setInt(2, service.getVehicleId());
+            stmt.setString(3, service.getType());
+            stmt.setString(4, service.getDescription());
+            stmt.setDouble(5, service.getLaborCost());
+            stmt.setString(6, service.getStatus());
+            stmt.setObject(7, service.getStartDate());
+            stmt.setObject(8, service.getEndDate());
+            stmt.setInt(9, service.getTechnicianId());
+            stmt.setInt(10, service.getId());
+
             stmt.executeUpdate();
         }
     }

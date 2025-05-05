@@ -4,6 +4,11 @@
  */
 package com.carmotors.maintenance.view;
 
+import com.carmotors.inventory.view.*;
+import java.awt.BorderLayout;
+
+import javax.swing.JPanel;
+
 /**
  *
  * @author camper
@@ -15,6 +20,8 @@ public class Maintanence extends javax.swing.JPanel {
      */
     public Maintanence() {
         initComponents();
+        content.setLayout(new BorderLayout());
+
     }
 
     /**
@@ -27,46 +34,150 @@ public class Maintanence extends javax.swing.JPanel {
     private void initComponents() {
 
         bg = new javax.swing.JPanel();
-        label1 = new java.awt.Label();
+        Article = new javax.swing.JPanel();
+        inventoryList = new javax.swing.JButton();
+        report = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        sparePart = new javax.swing.JButton();
+        content = new javax.swing.JPanel();
+
+        setLayout(new java.awt.BorderLayout());
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
 
-        label1.setBackground(new java.awt.Color(255, 255, 255));
-        label1.setFont(new java.awt.Font("Dialog", 0, 80)); // NOI18N
-        label1.setText("Mantenimiento");
+        Article.setBackground(new java.awt.Color(255, 255, 255));
+
+        inventoryList.setBackground(new java.awt.Color(0, 0, 0));
+        inventoryList.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        inventoryList.setForeground(new java.awt.Color(255, 255, 255));
+        inventoryList.setText("Servicios Activos");
+        inventoryList.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        inventoryList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inventoryListActionPerformed(evt);
+            }
+        });
+
+        report.setBackground(new java.awt.Color(0, 0, 0));
+        report.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        report.setForeground(new java.awt.Color(255, 255, 255));
+        report.setText("Historial Servicios");
+        report.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        report.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 36)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Mantenimiento y Reparaciones");
+        jLabel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+
+        sparePart.setBackground(new java.awt.Color(0, 0, 0));
+        sparePart.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        sparePart.setForeground(new java.awt.Color(255, 255, 255));
+        sparePart.setText("Registrar Servicio");
+        sparePart.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        sparePart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sparePartActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ArticleLayout = new javax.swing.GroupLayout(Article);
+        Article.setLayout(ArticleLayout);
+        ArticleLayout.setHorizontalGroup(
+            ArticleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ArticleLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(ArticleLayout.createSequentialGroup()
+                .addComponent(inventoryList, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sparePart, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(report, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE))
+        );
+        ArticleLayout.setVerticalGroup(
+            ArticleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ArticleLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addGroup(ArticleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inventoryList)
+                    .addComponent(report)
+                    .addComponent(sparePart))
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+
+        content.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
+        content.setLayout(contentLayout);
+        contentLayout.setHorizontalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        contentLayout.setVerticalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 608, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
         bg.setLayout(bgLayout);
         bgLayout.setHorizontalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
-                .addContainerGap(79, Short.MAX_VALUE)
-                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
+                .addContainerGap()
+                .addComponent(Article, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         bgLayout.setVerticalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bgLayout.createSequentialGroup()
-                .addGap(198, 198, 198)
-                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(223, Short.MAX_VALUE))
+                .addComponent(Article, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        add(bg, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void inventoryListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryListActionPerformed
+        InventoryList p = new InventoryList();
+
+        ShowPanel(p);
+    }//GEN-LAST:event_inventoryListActionPerformed
+
+    private void ShowPanel(JPanel p) {
+        p.setLocation(0, 0);
+        content.removeAll();
+        content.setLayout(new BorderLayout()); // Asegúrate de que usa BorderLayout
+        content.add(p);   // No uses BorderLayout.WEST aquí
+        content.revalidate();
+        content.repaint();
+    }
+    private void reportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportActionPerformed
+        report p3 = new report();
+        ShowPanel(p3);
+    }//GEN-LAST:event_reportActionPerformed
+
+    private void sparePartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sparePartActionPerformed
+        Service p2 = new Service();
+        ShowPanel(p2);
+    }//GEN-LAST:event_sparePartActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Article;
     private javax.swing.JPanel bg;
-    private java.awt.Label label1;
+    private javax.swing.JPanel content;
+    private javax.swing.JButton inventoryList;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton report;
+    private javax.swing.JButton sparePart;
     // End of variables declaration//GEN-END:variables
 }

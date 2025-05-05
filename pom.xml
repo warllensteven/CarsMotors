@@ -23,6 +23,27 @@
             <artifactId>AbsoluteLayout</artifactId>
             <version>RELEASE180</version>
         </dependency>
+        
+        <dependency>
+    <groupId>com.itextpdf</groupId>
+    <artifactId>itext-core</artifactId>
+    <version>9.0.0</version>
+    <scope>compile</scope>
+    <type>pom</type>
+</dependency>
+    <!-- ZXing para códigos QR -->
+    <dependency>
+        <groupId>com.google.zxing</groupId>
+        <artifactId>javase</artifactId>
+        <version>3.5.2</version>
+    </dependency>
+    <!-- Dependencias existentes (mysql-connector,
+    etc.) -->
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.33</version>
+    </dependency>
     </dependencies>
 
     <build>
