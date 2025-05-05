@@ -42,7 +42,7 @@ public class Service extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        nameClient = new javax.swing.JTextField();
+        client_id = new javax.swing.JTextField();
         vehiculo = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         Technician_id = new javax.swing.JTextField();
@@ -53,28 +53,36 @@ public class Service extends javax.swing.JPanel {
         description = new javax.swing.JTextArea();
         jLabel15 = new javax.swing.JLabel();
         type = new javax.swing.JTextField();
+        costoLabor = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         idDelete = new javax.swing.JTextField();
         delete = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        costoLaborclient_idUdp = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         update = new javax.swing.JButton();
-        Technician_idUdp = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        descriptionUdp = new javax.swing.JTextArea();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        entry_dateUdp = new javax.swing.JSpinner();
-        vehiculoUdp = new javax.swing.JTextField();
-        nameClientUdp = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         idUpd = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
         search = new javax.swing.JButton();
+        costoLabor1 = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        Technician_idclient_idUdp = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        descriptionclient_idUdp = new javax.swing.JTextArea();
+        jLabel10 = new javax.swing.JLabel();
+        entry_dateclient_idUdp = new javax.swing.JSpinner();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        vehiculoclient_idUdp = new javax.swing.JTextField();
+        typeclient_idUdp = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        client_idUdp = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
 
         jTabbedPane1.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -83,15 +91,15 @@ public class Service extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 30)); // NOI18N
         jLabel1.setText("AGREGAR REPUESTO.");
 
-        jLabel2.setText("Cliente:");
+        jLabel2.setText("ID Cliente:");
 
-        jLabel4.setText("Vehiculo:");
+        jLabel4.setText("ID Vehiculo:");
 
         jLabel5.setText("Descripcion");
 
-        nameClient.addActionListener(new java.awt.event.ActionListener() {
+        client_id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameClientActionPerformed(evt);
+                client_idActionPerformed(evt);
             }
         });
 
@@ -121,7 +129,7 @@ public class Service extends javax.swing.JPanel {
         description.setRows(5);
         jScrollPane1.setViewportView(description);
 
-        jLabel15.setText("Tipo:");
+        jLabel15.setText("Tipo Servicio:");
 
         type.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,68 +137,64 @@ public class Service extends javax.swing.JPanel {
             }
         });
 
+        jLabel16.setText("Costo Labor:");
+
+        jLabel17.setText("(Preventivo, Correctivo)");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(nameClient, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(116, 116, 116))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(103, 103, 103)
-                                .addComponent(Technician_id, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel6)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(vehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(entry_date, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(715, Short.MAX_VALUE))
+                        .addComponent(client_id, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel9)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel16))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(vehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(entry_date, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(costoLabor, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(Technician_id, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel17))
+                    .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addContainerGap(979, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nameClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(client_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -205,13 +209,17 @@ public class Service extends javax.swing.JPanel {
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(Technician_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(12, 12, 12)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(costoLabor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addGap(112, 112, 112))
         );
 
         jTabbedPane1.addTab("Agregar", jPanel1);
@@ -252,7 +260,7 @@ public class Service extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(idDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel13))
-                .addContainerGap(747, Short.MAX_VALUE))
+                .addContainerGap(1095, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,12 +273,12 @@ public class Service extends javax.swing.JPanel {
                     .addComponent(idDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(482, Short.MAX_VALUE))
+                .addContainerGap(488, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Eliminar", jPanel2);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        costoLaborclient_idUdp.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel14.setFont(new java.awt.Font("Liberation Sans", 1, 30)); // NOI18N
         jLabel14.setText("ACTUALIZAR");
@@ -283,34 +291,6 @@ public class Service extends javax.swing.JPanel {
                 updateActionPerformed(evt);
             }
         });
-
-        Technician_idUdp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Technician_idUdpActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setText("ID Técnico:");
-
-        descriptionUdp.setColumns(20);
-        descriptionUdp.setRows(5);
-        jScrollPane2.setViewportView(descriptionUdp);
-
-        jLabel8.setText("Descripcion");
-
-        jLabel10.setText("Ingreso:");
-
-        entry_dateUdp.setModel(new javax.swing.SpinnerDateModel());
-
-        nameClientUdp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameClientUdpActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("Cliente:");
-
-        jLabel11.setText("Vehiculo:");
 
         idUpd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -327,83 +307,141 @@ public class Service extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        jLabel18.setText("Costo Labor:");
+
+        jLabel8.setText("ID Técnico:");
+
+        Technician_idclient_idUdp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Technician_idclient_idUdpActionPerformed(evt);
+            }
+        });
+
+        descriptionclient_idUdp.setColumns(20);
+        descriptionclient_idUdp.setRows(5);
+        jScrollPane3.setViewportView(descriptionclient_idUdp);
+
+        jLabel10.setText("Descripcion");
+
+        entry_dateclient_idUdp.setModel(new javax.swing.SpinnerDateModel());
+
+        jLabel11.setText("Ingreso:");
+
+        jLabel19.setText("ID Vehiculo:");
+
+        typeclient_idUdp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                typeclient_idUdpActionPerformed(evt);
+            }
+        });
+
+        jLabel20.setText("Tipo Servicio:");
+
+        jLabel3.setText("ID Cliente:");
+
+        client_idUdp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                client_idUdpActionPerformed(evt);
+            }
+        });
+
+        jLabel21.setText("(Preventivo, Correctivo)");
+
+        javax.swing.GroupLayout costoLaborclient_idUdpLayout = new javax.swing.GroupLayout(costoLaborclient_idUdp);
+        costoLaborclient_idUdp.setLayout(costoLaborclient_idUdpLayout);
+        costoLaborclient_idUdpLayout.setHorizontalGroup(
+            costoLaborclient_idUdpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(costoLaborclient_idUdpLayout.createSequentialGroup()
                 .addComponent(jLabel14)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(costoLaborclient_idUdpLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(update, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(costoLaborclient_idUdpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(costoLaborclient_idUdpLayout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(client_idUdp, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel11)
+                    .addGroup(costoLaborclient_idUdpLayout.createSequentialGroup()
+                        .addGroup(costoLaborclient_idUdpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel18))
+                        .addGroup(costoLaborclient_idUdpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(costoLaborclient_idUdpLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nameClientUdp, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(vehiculoUdp, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(vehiculoclient_idUdp, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(costoLaborclient_idUdpLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Technician_idUdp, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(entry_dateUdp, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addComponent(jLabel7)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(costoLaborclient_idUdpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(entry_dateclient_idUdp, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(costoLaborclient_idUdpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(costoLabor1, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(Technician_idclient_idUdp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(costoLaborclient_idUdpLayout.createSequentialGroup()
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(typeclient_idUdp, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)
+                        .addComponent(jLabel21))
+                    .addComponent(jLabel8)
+                    .addGroup(costoLaborclient_idUdpLayout.createSequentialGroup()
                         .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(idUpd, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(search)))
-                .addContainerGap(715, Short.MAX_VALUE))
+                        .addComponent(search))
+                    .addComponent(update, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(979, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        costoLaborclient_idUdpLayout.setVerticalGroup(
+            costoLaborclient_idUdpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(costoLaborclient_idUdpLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(costoLaborclient_idUdpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(idUpd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(search))
-                .addGap(8, 8, 8)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(costoLaborclient_idUdpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nameClientUdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(client_idUdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(vehiculoUdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(costoLaborclient_idUdpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(typeclient_idUdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(entry_dateUdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(costoLaborclient_idUdpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(vehiculoclient_idUdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(101, 101, 101))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(Technician_idUdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(costoLaborclient_idUdpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(entry_dateclient_idUdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(costoLaborclient_idUdpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(costoLaborclient_idUdpLayout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(costoLaborclient_idUdpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(Technician_idclient_idUdp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(costoLaborclient_idUdpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(costoLabor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18))
+                .addGap(31, 31, 31)
                 .addComponent(update, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(242, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Actualizar", jPanel3);
+        jTabbedPane1.addTab("Actualizar", costoLaborclient_idUdp);
 
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
         bg.setLayout(bgLayout);
@@ -432,9 +470,90 @@ public class Service extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void idDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idDeleteActionPerformed
+    private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
+        try {
+            String input = idUpd.getText().trim();
+            if (input.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Por favor ingrese el ID del servicio.");
+                return;
+            }
+
+            int id = Integer.parseInt(input);
+            MaintenanceService encontrado = controller.buscarPorId(id);
+
+            if (encontrado != null) {
+                IdSeleccionado = id;
+
+                client_idUdp.setText(String.valueOf(encontrado.getIdClient()));
+                vehiculoclient_idUdp.setText(String.valueOf(encontrado.getVehicleId()));
+                typeclient_idUdp.setText(encontrado.getType());
+                descriptionclient_idUdp.setText(encontrado.getDescription());
+                costoLabor1.setText(String.valueOf(encontrado.getLaborCost()));
+                entry_dateclient_idUdp.setValue(java.sql.Timestamp.valueOf(encontrado.getStartDate()));
+                Technician_idclient_idUdp.setText(String.valueOf(encontrado.getTechnicianId()));
+            } else {
+                JOptionPane.showMessageDialog(this, "Servicio no encontrado con ID: " + id);
+            }
+
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "El ID debe ser un número válido.");
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error al buscar el servicio.");
+        }
+
+    }//GEN-LAST:event_searchActionPerformed
+
+    private void idUpdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idUpdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_idDeleteActionPerformed
+    }//GEN-LAST:event_idUpdActionPerformed
+
+    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
+        if (IdSeleccionado == -1) {
+            JOptionPane.showMessageDialog(this, "Debes buscar primero un servicio válido.");
+            return;
+        }
+
+        try {
+            int idClient = Integer.parseInt(client_idUdp.getText());
+            int vehicleId = Integer.parseInt(vehiculoclient_idUdp.getText());
+            String tipoServicio = typeclient_idUdp.getText();
+            String descripcion = descriptionclient_idUdp.getText();
+            double costo = Double.parseDouble(costoLabor1.getText());
+            String estado = "En proceso"; // Puedes ajustarlo o permitir elegir
+            java.time.LocalDateTime fechaInicio = ((java.util.Date) entry_dateclient_idUdp.getValue()).toInstant()
+                    .atZone(java.time.ZoneId.systemDefault())
+                    .toLocalDateTime();
+            java.time.LocalDateTime fechaFin = null; // Si tienes campo de fecha de fin, puedes leerlo aquí
+            int tecnicoId = Integer.parseInt(Technician_idclient_idUdp.getText());
+
+            MaintenanceService actualizado = new MaintenanceService(
+                    IdSeleccionado, idClient, vehicleId, tipoServicio, descripcion, costo,
+                    estado, fechaInicio, fechaFin, tecnicoId
+            );
+
+            controller.actualizarServicio(actualizado);
+
+            JOptionPane.showMessageDialog(this, "Servicio actualizado correctamente.");
+            IdSeleccionado = -1;
+
+            // Limpiar campos
+            idUpd.setText("");
+            client_idUdp.setText("");
+            vehiculoclient_idUdp.setText("");
+            typeclient_idUdp.setText("");
+            descriptionclient_idUdp.setText("");
+            costoLabor1.setText("");
+            Technician_idclient_idUdp.setText("");
+            entry_dateclient_idUdp.setValue(new java.util.Date());
+
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Verifica los campos numéricos.");
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error al actualizar el servicio.");
+        }
+    }//GEN-LAST:event_updateActionPerformed
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
         try {
@@ -465,80 +584,43 @@ public class Service extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_deleteActionPerformed
 
-    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
-        if (IdSeleccionado == -1) {
-            JOptionPane.showMessageDialog(this, "Debes buscar primero un servicio válido.");
-            return;
-        }
+    private void idDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idDeleteActionPerformed
 
-        try {
-            int vehicleId = Integer.parseInt(vehiculoUdp.getText());
-            String tipoServicio = nameClientUdp.getText();
-            String descripcion = descriptionUdp.getText();
-            double costo = 0.0; // Asume un valor por defecto, puedes agregar un campo para ingresarlo
-            String estado = "En progreso"; // Puedes ajustar según tu lógica de negocio
-            java.time.LocalDateTime fechaInicio = ((java.util.Date) entry_dateUdp.getValue()).toInstant()
-                    .atZone(java.time.ZoneId.systemDefault())
-                    .toLocalDateTime();
-            java.time.LocalDateTime fechaFin = null; // Si no manejas un campo aún
-            int tecnicoId = Integer.parseInt(Technician_idUdp.getText());
-
-            MaintenanceService actualizado = new MaintenanceService(
-                    IdSeleccionado, // ID del servicio existente
-                    vehicleId,
-                    tipoServicio,
-                    descripcion,
-                    costo,
-                    estado,
-                    fechaInicio,
-                    fechaFin,
-                    tecnicoId
-            );
-
-            controller.actualizarServicio(actualizado);
-
-            JOptionPane.showMessageDialog(this, "Servicio actualizado correctamente.");
-            IdSeleccionado = -1;
-
-            // Limpiar campos
-            vehiculoUdp.setText("");
-            nameClientUdp.setText("");
-            descriptionUdp.setText("");
-            Technician_idUdp.setText("");
-            idUpd.setText("");
-
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Verifica los campos numéricos.");
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error al actualizar el servicio.");
-        }
-    }//GEN-LAST:event_updateActionPerformed
+    private void typeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_typeActionPerformed
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         try {
+            int idClient = Integer.parseInt(client_id.getText()); // Asegúrate de tener este campo en el formulario
             int vehicleId = Integer.parseInt(vehiculo.getText());
-            String tipoServicio = nameClient.getText(); // Puedes usar otro campo si es necesario
+            String tipoServicio = type.getText(); // O usa nameClient si lo estás usando para esto
             String descripcion = description.getText();
-            double costo = 0.0; // Puedes incluir un campo de texto para esto si lo deseas
-            String estado = "Pendiente"; // Estado por defecto
+            double costo = Double.parseDouble(costoLabor.getText()); // Agrega campo de texto si aún no lo tienes
+            String estado = "Pendiente"; // Estado inicial
             java.time.LocalDateTime fechaInicio = ((java.util.Date) entry_date.getValue()).toInstant()
                     .atZone(java.time.ZoneId.systemDefault())
                     .toLocalDateTime();
-            java.time.LocalDateTime fechaFin = null; // Inicialmente null
+            java.time.LocalDateTime fechaFin = null; // Puede modificarse luego
             int tecnicoId = Integer.parseInt(Technician_id.getText());
 
-            MaintenanceService nuevo = new MaintenanceService(0, vehicleId, tipoServicio, descripcion,
-                    costo, estado, fechaInicio, fechaFin, tecnicoId);
+            // Crear el nuevo mantenimiento con el constructor que incluye idClient
+            MaintenanceService nuevo = new MaintenanceService(
+                    idClient, vehicleId, tipoServicio, descripcion, costo, estado, fechaInicio, fechaFin, tecnicoId
+            );
 
             controller.agregarServicio(nuevo);
 
             JOptionPane.showMessageDialog(this, "Servicio registrado exitosamente.");
 
             // Limpiar campos
+            client_id.setText("");
             vehiculo.setText("");
-            nameClient.setText("");
+            type.setText(""); // O limpia el campo si no es un JComboBox
             description.setText("");
+            costoLabor.setText("");
             Technician_id.setText("");
             entry_date.setValue(new java.util.Date());
 
@@ -554,67 +636,38 @@ public class Service extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Technician_idActionPerformed
 
-    private void nameClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameClientActionPerformed
+    private void client_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_client_idActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nameClientActionPerformed
+    }//GEN-LAST:event_client_idActionPerformed
 
-    private void Technician_idUdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Technician_idUdpActionPerformed
+    private void Technician_idclient_idUdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Technician_idclient_idUdpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Technician_idUdpActionPerformed
+    }//GEN-LAST:event_Technician_idclient_idUdpActionPerformed
 
-    private void nameClientUdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameClientUdpActionPerformed
+    private void typeclient_idUdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeclient_idUdpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nameClientUdpActionPerformed
+    }//GEN-LAST:event_typeclient_idUdpActionPerformed
 
-    private void idUpdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idUpdActionPerformed
+    private void client_idUdpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_client_idUdpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_idUpdActionPerformed
-
-    private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
-        try {
-        String input = idUpd.getText().trim();
-        if (input.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Por favor ingrese el ID del servicio.");
-            return;
-        }
-
-        int id = Integer.parseInt(input);
-        MaintenanceService encontrado = controller.buscarPorId(id);
-
-        if (encontrado != null) {
-            IdSeleccionado = id;
-            vehiculoUdp.setText(String.valueOf(encontrado.getVehicleId()));
-            nameClientUdp.setText(encontrado.()); // Tipo de servicio
-            descriptionUdp.setText(encontrado.getDescription());
-            entry_dateUdp.setValue(java.sql.Timestamp.valueOf(encontrado.getStartDate()));
-            Technician_idUdp.setText(String.valueOf(encontrado.getTechnicianId()));
-        } else {
-            JOptionPane.showMessageDialog(this, "Servicio no encontrado con ID: " + id);
-        }
-
-    } catch (NumberFormatException ex) {
-        JOptionPane.showMessageDialog(this, "El ID debe ser un número válido.");
-    } catch (Exception e) {
-        e.printStackTrace();
-        JOptionPane.showMessageDialog(this, "Error al buscar el servicio.");
-    }
-    }//GEN-LAST:event_searchActionPerformed
-
-    private void typeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_typeActionPerformed
+    }//GEN-LAST:event_client_idUdpActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Technician_id;
-    private javax.swing.JTextField Technician_idUdp;
+    private javax.swing.JTextField Technician_idclient_idUdp;
     private javax.swing.JButton add;
     private javax.swing.JPanel bg;
+    private javax.swing.JTextField client_id;
+    private javax.swing.JTextField client_idUdp;
+    private javax.swing.JTextField costoLabor;
+    private javax.swing.JTextField costoLabor1;
+    private javax.swing.JPanel costoLaborclient_idUdp;
     private javax.swing.JButton delete;
     private javax.swing.JTextArea description;
-    private javax.swing.JTextArea descriptionUdp;
+    private javax.swing.JTextArea descriptionclient_idUdp;
     private javax.swing.JSpinner entry_date;
-    private javax.swing.JSpinner entry_dateUdp;
+    private javax.swing.JSpinner entry_dateclient_idUdp;
     private javax.swing.JTextField idDelete;
     private javax.swing.JTextField idUpd;
     private javax.swing.JLabel jLabel1;
@@ -624,27 +677,30 @@ public class Service extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField nameClient;
-    private javax.swing.JTextField nameClientUdp;
     private javax.swing.JButton search;
     private javax.swing.JTextField type;
+    private javax.swing.JTextField typeclient_idUdp;
     private javax.swing.JButton update;
     private javax.swing.JTextField vehiculo;
-    private javax.swing.JTextField vehiculoUdp;
+    private javax.swing.JTextField vehiculoclient_idUdp;
     // End of variables declaration//GEN-END:variables
 }

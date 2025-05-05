@@ -4,6 +4,7 @@ import com.carmotors.maintenance.model.MaintenanceService;
 import java.time.LocalDateTime;
 
 public class MaintenanceServiceBuilder {
+    private int idClient;            // Nuevo campo
     private int vehicleId;
     private String type;
     private String description;
@@ -12,6 +13,11 @@ public class MaintenanceServiceBuilder {
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private int technicianId;
+
+    public MaintenanceServiceBuilder setIdClient(int idClient) {
+        this.idClient = idClient;
+        return this;
+    }
 
     public MaintenanceServiceBuilder setVehicleId(int vehicleId) {
         this.vehicleId = vehicleId;
@@ -54,6 +60,6 @@ public class MaintenanceServiceBuilder {
     }
 
     public MaintenanceService build() {
-        return new MaintenanceService(vehicleId, type, description, laborCost, status, startDate, endDate, technicianId);
+        return new MaintenanceService(idClient, vehicleId, type, description, laborCost, status, startDate, endDate, technicianId);
     }
 }

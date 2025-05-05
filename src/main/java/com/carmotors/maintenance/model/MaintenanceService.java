@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 public class MaintenanceService {
     private int id;
+    private int idClient; // Nuevo campo
     private int vehicleId;
     private String type;
     private String description;
@@ -13,9 +14,11 @@ public class MaintenanceService {
     private LocalDateTime endDate;
     private int technicianId;
 
-    public MaintenanceService(int id, int vehicleId, String type, String description, double laborCost,
+    // Constructor con ID
+    public MaintenanceService(int id, int idClient, int vehicleId, String type, String description, double laborCost,
             String status, LocalDateTime startDate, LocalDateTime endDate, int technicianId) {
         this.id = id;
+        this.idClient = idClient;
         this.vehicleId = vehicleId;
         this.type = type;
         this.description = description;
@@ -26,8 +29,10 @@ public class MaintenanceService {
         this.technicianId = technicianId;
     }
 
-    public MaintenanceService(int vehicleId, String type, String description, double laborCost,
+    // Constructor sin ID
+    public MaintenanceService(int idClient, int vehicleId, String type, String description, double laborCost,
             String status, LocalDateTime startDate, LocalDateTime endDate, int technicianId) {
+        this.idClient = idClient;
         this.vehicleId = vehicleId;
         this.type = type;
         this.description = description;
@@ -46,6 +51,14 @@ public class MaintenanceService {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getIdClient() {
+        return idClient;
+    }
+
+    public void setIdClient(int idClient) {
+        this.idClient = idClient;
     }
 
     public int getVehicleId() {
