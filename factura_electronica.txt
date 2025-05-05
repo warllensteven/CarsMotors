@@ -1,0 +1,17 @@
+===== FACTURA ELECTRÓNICA =====
+Número de Factura: FAC-001
+Fecha: 2025-05-05T00:50:02.938558900
+Cliente: Juan Pérez
+Identificación: 1234567890
+Email: juan@email.com
+------------------------------
+Ítems:
+- Cambio de Aceite | Cantidad: 1 | Precio Unitario: $50 | Total: $50
+- Filtro de Aceite | Cantidad: 1 | Precio Unitario: $20 | Total: $20
+- Mano de Obra | Cantidad: 2 | Precio Unitario: $30 | Total: $60
+------------------------------
+Subtotal: $130
+Impuesto (19.0%): $24,7
+Descuento: $10
+Total: $144,7
+===== GRACIAS POR SU COMPRA =====
