@@ -8,12 +8,12 @@ package com.carmotors.inventory.view;
  *
  * @author camper
  */
-public class inventoryList extends javax.swing.JPanel {
+public class InventoryList extends javax.swing.JPanel {
 
     /**
      * Creates new form inventoryList
      */
-    public inventoryList() {
+    public InventoryList() {
         initComponents();
     }
 
@@ -28,22 +28,32 @@ public class inventoryList extends javax.swing.JPanel {
 
         bg = new javax.swing.JPanel();
 
-        setLayout(new java.awt.BorderLayout());
+        setPreferredSize(new java.awt.Dimension(656, 725));
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
+        bg.setPreferredSize(new java.awt.Dimension(656, 725));
 
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
         bg.setLayout(bgLayout);
         bgLayout.setHorizontalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 739, Short.MAX_VALUE)
+            .addGap(0, 555, Short.MAX_VALUE)
         );
         bgLayout.setVerticalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 706, Short.MAX_VALUE)
+            .addGap(0, 724, Short.MAX_VALUE)
         );
 
-        add(bg, java.awt.BorderLayout.CENTER);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 724, Short.MAX_VALUE)
+        );
     }// </editor-fold>//GEN-END:initComponents
 
 

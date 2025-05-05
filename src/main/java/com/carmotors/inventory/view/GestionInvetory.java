@@ -5,6 +5,7 @@
 package com.carmotors.inventory.view;
 
 import java.awt.BorderLayout;
+
 import javax.swing.JPanel;
 
 /**
@@ -18,6 +19,10 @@ public class GestionInvetory extends javax.swing.JPanel {
      */
     public GestionInvetory() {
         initComponents();
+        content.setLayout(new BorderLayout());
+   
+
+
     }
 
     /**
@@ -29,16 +34,20 @@ public class GestionInvetory extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bg = new javax.swing.JPanel();
         Article = new javax.swing.JPanel();
         inventoryList = new javax.swing.JButton();
-        sparePart = new javax.swing.JButton();
         report = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        sparePart = new javax.swing.JButton();
+        content = new javax.swing.JPanel();
+
+        bg.setBackground(new java.awt.Color(255, 255, 255));
 
         Article.setBackground(new java.awt.Color(255, 255, 255));
 
         inventoryList.setBackground(new java.awt.Color(0, 0, 0));
-        inventoryList.setFont(new java.awt.Font("Liberation Sans", 0, 30)); // NOI18N
+        inventoryList.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         inventoryList.setForeground(new java.awt.Color(255, 255, 255));
         inventoryList.setText("Inventario");
         inventoryList.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -48,19 +57,8 @@ public class GestionInvetory extends javax.swing.JPanel {
             }
         });
 
-        sparePart.setBackground(new java.awt.Color(0, 0, 0));
-        sparePart.setFont(new java.awt.Font("Liberation Sans", 0, 30)); // NOI18N
-        sparePart.setForeground(new java.awt.Color(255, 255, 255));
-        sparePart.setText("Repuesto");
-        sparePart.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        sparePart.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sparePartActionPerformed(evt);
-            }
-        });
-
         report.setBackground(new java.awt.Color(0, 0, 0));
-        report.setFont(new java.awt.Font("Liberation Sans", 0, 30)); // NOI18N
+        report.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         report.setForeground(new java.awt.Color(255, 255, 255));
         report.setText("Reporte");
         report.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -76,6 +74,17 @@ public class GestionInvetory extends javax.swing.JPanel {
         jLabel1.setText("Gestión Inventario");
         jLabel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
+        sparePart.setBackground(new java.awt.Color(0, 0, 0));
+        sparePart.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        sparePart.setForeground(new java.awt.Color(255, 255, 255));
+        sparePart.setText("Repuesto");
+        sparePart.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        sparePart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sparePartActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ArticleLayout = new javax.swing.GroupLayout(Article);
         Article.setLayout(ArticleLayout);
         ArticleLayout.setHorizontalGroup(
@@ -83,28 +92,59 @@ public class GestionInvetory extends javax.swing.JPanel {
             .addGroup(ArticleLayout.createSequentialGroup()
                 .addGroup(ArticleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ArticleLayout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addGroup(ArticleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(inventoryList, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sparePart, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(report, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap()
+                        .addComponent(inventoryList, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(sparePart, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(report, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ArticleLayout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(219, Short.MAX_VALUE))
+                        .addGap(148, 148, 148)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         ArticleLayout.setVerticalGroup(
             ArticleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ArticleLayout.createSequentialGroup()
-                .addGap(128, 128, 128)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ArticleLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(inventoryList, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(sparePart, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(report, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ArticleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inventoryList)
+                    .addComponent(report)
+                    .addComponent(sparePart))
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+
+        content.setBackground(new java.awt.Color(255, 255, 0));
+
+        javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
+        content.setLayout(contentLayout);
+        contentLayout.setHorizontalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        contentLayout.setVerticalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 608, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
+        bg.setLayout(bgLayout);
+        bgLayout.setHorizontalGroup(
+            bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Article, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        bgLayout.setVerticalGroup(
+            bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bgLayout.createSequentialGroup()
+                .addComponent(Article, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -113,28 +153,26 @@ public class GestionInvetory extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(Article, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(Article, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void inventoryListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryListActionPerformed
-        inventoryList inventoryList = new inventoryList();
-        
-        ShowPanel(inventoryList);
+        InventoryList p = new InventoryList();
+
+        ShowPanel(p);
     }//GEN-LAST:event_inventoryListActionPerformed
 
-    private void ShowPanel(JPanel p){
+    private void ShowPanel(JPanel p) {
         p.setLocation(0, 0);
-        Article.removeAll();
-        Article.add(p,BorderLayout.CENTER);
-        Article.revalidate();
-        Article.repaint();
+        content.removeAll();
+        content.add(p, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
     }
     private void reportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportActionPerformed
         report p3 = new report();
@@ -149,6 +187,8 @@ public class GestionInvetory extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Article;
+    private javax.swing.JPanel bg;
+    private javax.swing.JPanel content;
     private javax.swing.JButton inventoryList;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton report;

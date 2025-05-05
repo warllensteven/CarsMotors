@@ -1,6 +1,6 @@
 ===== FACTURA ELECTRÓNICA =====
 Número de Factura: FAC-001
-Fecha: 2025-05-05T00:50:02.938558900
+Fecha: 2025-05-05T08:07:24.232129860
 Cliente: Juan Pérez
 Identificación: 1234567890
 Email: juan@email.com

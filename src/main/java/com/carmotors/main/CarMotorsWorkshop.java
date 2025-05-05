@@ -9,7 +9,7 @@ package com.carmotors.main;
 
 
 import com.carmotors.client.view.Client;
-import com.carmotors.inventory.model.SparePart;
+
 
 import com.carmotors.inventory.view.GestionInvetory;
 import com.carmotors.maintenance.view.Maintanence;
@@ -38,6 +38,7 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
 
        
     }
+    
     private void ShowPanel(JPanel p){
         p.setLocation(0, 0);
         article.removeAll();
