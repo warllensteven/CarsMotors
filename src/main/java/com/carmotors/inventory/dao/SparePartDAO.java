@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SparePartDAO {
+
     private static SparePartDAO instance;
 
     private SparePartDAO() {
@@ -32,39 +33,62 @@ public class SparePartDAO {
         return instance;
     }
 
-public void add(SparePart sparePart) throws SQLException {
-    String query = "INSERT INTO spare_parts (name, type, brand, model, supplier_id, stock, min_stock, entry_date, expiry_date, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    Connection conn = DatabaseConnection.getInstance().getConnection();
-    try (PreparedStatement stmt = conn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)) {
-        stmt.setString(1, sparePart.getName());
-        stmt.setString(2, sparePart.getType());
-        stmt.setString(3, sparePart.getBrand());
-        stmt.setString(4, sparePart.getModel());
-        stmt.setInt(5, sparePart.getSupplierId());
-        stmt.setInt(6, sparePart.getStock());
-        stmt.setInt(7, sparePart.getMinStock());
-        stmt.setObject(8, sparePart.getEntryDate());
-        stmt.setObject(9, sparePart.getExpiryDate());
-        stmt.setString(10, sparePart.getStatus());
-        stmt.executeUpdate();
+    public void add(SparePart sparePart) throws SQLException {
+        String query = "INSERT INTO spare_parts (name, type, brand, model, supplier_id, stock, min_stock, entry_date, expiry_date, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        Connection conn = DatabaseConnection.getInstance().getConnection();
+        try (PreparedStatement stmt = conn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)) {
+            stmt.setString(1, sparePart.getName());
+            stmt.setString(2, sparePart.getType());
+            stmt.setString(3, sparePart.getBrand());
+            stmt.setString(4, sparePart.getModel());
+            stmt.setInt(5, sparePart.getSupplierId());
+            stmt.setInt(6, sparePart.getStock());
+            stmt.setInt(7, sparePart.getMinStock());
+            stmt.setObject(8, sparePart.getEntryDate());
+            stmt.setObject(9, sparePart.getExpiryDate());
+            stmt.setString(10, sparePart.getStatus());
+            stmt.executeUpdate();
 
-        // Obtener el ID generado
-        try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
-            if (generatedKeys.next()) {
-                sparePart.setId(generatedKeys.getInt(1));
+            // Obtener el ID generado
+            try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    sparePart.setId(generatedKeys.getInt(1));
+                }
             }
         }
     }
-}
 
     public SparePart getById(int id) throws SQLException {
         String query = "SELECT * FROM spare_parts WHERE id = ?";
-        try (Connection conn = DatabaseConnection.getInstance().getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
+        try (Connection conn = DatabaseConnection.getInstance().getConnection(); PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setInt(1, id);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     return new SparePart(
+                            rs.getInt("id"),
+                            rs.getString("name"),
+                            rs.getString("type"),
+                            rs.getString("brand"),
+                            rs.getString("model"),
+                            rs.getInt("supplier_id"),
+                            rs.getInt("stock"),
+                            rs.getInt("min_stock"),
+                            rs.getObject("entry_date", LocalDate.class),
+                            rs.getObject("expiry_date", LocalDate.class),
+                            rs.getString("status")
+                    );
+                }
+            }
+        }
+        return null;
+    }
+
+    public List<SparePart> getAll() throws SQLException {
+        List<SparePart> spareParts = new ArrayList<>();
+        String query = "SELECT * FROM spare_parts";
+        try (Connection conn = DatabaseConnection.getInstance().getConnection(); PreparedStatement stmt = conn.prepareStatement(query); ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                SparePart sparePart = new SparePart(
                         rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("type"),
@@ -76,32 +100,6 @@ public void add(SparePart sparePart) throws SQLException {
                         rs.getObject("entry_date", LocalDate.class),
                         rs.getObject("expiry_date", LocalDate.class),
                         rs.getString("status")
-                    );
-                }
-            }
-        }
-        return null;
-    }
-
-    public List<SparePart> getAll() throws SQLException {
-        List<SparePart> spareParts = new ArrayList<>();
-        String query = "SELECT * FROM spare_parts";
-        try (Connection conn = DatabaseConnection.getInstance().getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query);
-             ResultSet rs = stmt.executeQuery()) {
-            while (rs.next()) {
-                SparePart sparePart = new SparePart(
-                    rs.getInt("id"),
-                    rs.getString("name"),
-                    rs.getString("type"),
-                    rs.getString("brand"),
-                    rs.getString("model"),
-                    rs.getInt("supplier_id"),
-                    rs.getInt("stock"),
-                    rs.getInt("min_stock"),
-                    rs.getObject("entry_date", LocalDate.class),
-                    rs.getObject("expiry_date", LocalDate.class),
-                    rs.getString("status")
                 );
                 spareParts.add(sparePart);
             }
@@ -111,8 +109,7 @@ public void add(SparePart sparePart) throws SQLException {
 
     public void update(SparePart sparePart) throws SQLException {
         String query = "UPDATE spare_parts SET name = ?, type = ?, brand = ?, model = ?, supplier_id = ?, stock = ?, min_stock = ?, entry_date = ?, expiry_date = ?, status = ? WHERE id = ?";
-        try (Connection conn = DatabaseConnection.getInstance().getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
+        try (Connection conn = DatabaseConnection.getInstance().getConnection(); PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setString(1, sparePart.getName());
             stmt.setString(2, sparePart.getType());
             stmt.setString(3, sparePart.getBrand());
@@ -130,10 +127,83 @@ public void add(SparePart sparePart) throws SQLException {
 
     public void delete(int id) throws SQLException {
         String query = "DELETE FROM spare_parts WHERE id = ?";
-        try (Connection conn = DatabaseConnection.getInstance().getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
+        try (Connection conn = DatabaseConnection.getInstance().getConnection(); PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setInt(1, id);
             stmt.executeUpdate();
         }
     }
+
+    public List<SparePart> searchByName(String nameFragment) throws SQLException {
+        List<SparePart> result = new ArrayList<>();
+        String query = "SELECT * FROM spare_parts WHERE LOWER(name) LIKE ?";
+        try (Connection conn = DatabaseConnection.getInstance().getConnection(); PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, "%" + nameFragment.toLowerCase() + "%");
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    SparePart sparePart = new SparePart(
+                            rs.getInt("id"),
+                            rs.getString("name"),
+                            rs.getString("type"),
+                            rs.getString("brand"),
+                            rs.getString("model"),
+                            rs.getInt("supplier_id"),
+                            rs.getInt("stock"),
+                            rs.getInt("min_stock"),
+                            rs.getObject("entry_date", LocalDate.class),
+                            rs.getObject("expiry_date", LocalDate.class),
+                            rs.getString("status")
+                    );
+                    result.add(sparePart);
+                }
+            }
+        }
+        return result;
+    }
+
+    public List<SparePart> getStockCritico() throws SQLException {
+        String query = "SELECT * FROM spare_parts WHERE stock <= min_stock";
+        return ejecutarConsulta(query);
+    }
+
+    public List<SparePart> getProximosAVencer(int dias) throws SQLException {
+        String query = "SELECT * FROM spare_parts WHERE expiry_date <= CURDATE() + INTERVAL ? DAY";
+        List<SparePart> resultado = new ArrayList<>();
+        try (Connection conn = DatabaseConnection.getInstance().getConnection(); PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, dias);
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    resultado.add(mapear(rs));
+                }
+            }
+        }
+        return resultado;
+    }
+
+    private List<SparePart> ejecutarConsulta(String query) throws SQLException {
+        List<SparePart> lista = new ArrayList<>();
+        try (Connection conn = DatabaseConnection.getInstance().getConnection(); PreparedStatement stmt = conn.prepareStatement(query); ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                lista.add(mapear(rs));
+            }
+        }
+        return lista;
+    }
+
+    private SparePart mapear(ResultSet rs) throws SQLException {
+        return new SparePart(
+                rs.getInt("id"),
+                rs.getString("name"),
+                rs.getString("type"),
+                rs.getString("brand"),
+                rs.getString("model"),
+                rs.getInt("supplier_id"),
+                rs.getInt("stock"),
+                rs.getInt("min_stock"),
+                rs.getObject("entry_date", java.time.LocalDate.class),
+                rs.getObject("expiry_date", java.time.LocalDate.class),
+                rs.getString("status")
+        );
+    }
+
 }

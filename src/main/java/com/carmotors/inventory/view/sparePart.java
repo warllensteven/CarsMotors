@@ -59,6 +59,8 @@ public class sparePart extends javax.swing.JPanel {
         status = new javax.swing.JTextField();
         expiry_date = new javax.swing.JSpinner();
         add = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -90,6 +92,10 @@ public class sparePart extends javax.swing.JPanel {
         idUpd = new javax.swing.JTextField();
         search = new javax.swing.JButton();
         update = new javax.swing.JButton();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+
+        jTabbedPane1.setBackground(new java.awt.Color(204, 204, 204));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -160,6 +166,10 @@ public class sparePart extends javax.swing.JPanel {
             }
         });
 
+        jLabel26.setText("(Disponible, Reservado, Fuera de servicio)");
+
+        jLabel27.setText("(Mecánico, Electrico, Carrocería, Consumo)");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -185,17 +195,25 @@ public class sparePart extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(supplier_id)
-                                .addComponent(stock)
-                                .addComponent(min_stock)
-                                .addComponent(entry_date)
-                                .addComponent(expiry_date)
-                                .addComponent(status))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(supplier_id)
+                                    .addComponent(stock)
+                                    .addComponent(min_stock)
+                                    .addComponent(entry_date)
+                                    .addComponent(expiry_date)
+                                    .addComponent(status))
+                                .addGap(44, 44, 44)
+                                .addComponent(jLabel26))
                             .addComponent(type, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(model, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(brand, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(759, Short.MAX_VALUE))
+                .addContainerGap(506, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(314, 314, 314)
+                    .addComponent(jLabel27)
+                    .addContainerGap(498, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,10 +259,16 @@ public class sparePart extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel26))
                 .addGap(18, 18, 18)
                 .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(137, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(107, 107, 107)
+                    .addComponent(jLabel27)
+                    .addContainerGap(509, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Agregar", jPanel1);
@@ -262,7 +286,7 @@ public class sparePart extends javax.swing.JPanel {
             }
         });
 
-        delete.setBackground(new java.awt.Color(255, 51, 51));
+        delete.setBackground(new java.awt.Color(255, 102, 102));
         delete.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         delete.setForeground(new java.awt.Color(255, 255, 255));
         delete.setText("Eliminar");
@@ -377,7 +401,7 @@ public class sparePart extends javax.swing.JPanel {
             }
         });
 
-        update.setBackground(new java.awt.Color(0, 102, 204));
+        update.setBackground(new java.awt.Color(153, 153, 255));
         update.setForeground(new java.awt.Color(255, 255, 255));
         update.setText("ACTUALIZAR");
         update.addActionListener(new java.awt.event.ActionListener() {
@@ -385,6 +409,10 @@ public class sparePart extends javax.swing.JPanel {
                 updateActionPerformed(evt);
             }
         });
+
+        jLabel28.setText("(Mecánico, Electrico, Carrocería, Consumo)");
+
+        jLabel29.setText("(Disponible, Reservado, Fuera de servicio)");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -418,17 +446,23 @@ public class sparePart extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addComponent(search))
                             .addComponent(nameUpd, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(supplier_idUpd)
-                                .addComponent(stockUpd)
-                                .addComponent(min_stockUpd)
-                                .addComponent(entry_dateUpd)
-                                .addComponent(expiry_dateUpd)
-                                .addComponent(statusUpd, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(typeUpd, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(modelUpd, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(brandUpd, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(732, Short.MAX_VALUE))
+                            .addComponent(brandUpd, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(typeUpd, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(supplier_idUpd)
+                                        .addComponent(stockUpd)
+                                        .addComponent(min_stockUpd)
+                                        .addComponent(entry_dateUpd)
+                                        .addComponent(expiry_dateUpd)
+                                        .addComponent(statusUpd, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(91, 91, 91)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel29)
+                                    .addComponent(jLabel28))))))
+                .addContainerGap(450, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -447,7 +481,8 @@ public class sparePart extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(typeUpd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(typeUpd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel28))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -479,7 +514,8 @@ public class sparePart extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24)
-                    .addComponent(statusUpd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(statusUpd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel29))
                 .addGap(18, 18, 18)
                 .addComponent(update, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(123, Short.MAX_VALUE))
@@ -535,7 +571,57 @@ public class sparePart extends javax.swing.JPanel {
     }//GEN-LAST:event_statusActionPerformed
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
-        // TODO add your handling code here:
+        try {
+        // Leer datos desde los campos de texto
+        String nameText = name.getText();
+        String typeText = type.getText();
+        String brandText = brand.getText();
+        String modelText = model.getText();
+        int supplierId = Integer.parseInt(supplier_id.getText());
+        int stockValue = Integer.parseInt(stock.getText());
+        int minStockValue = Integer.parseInt(min_stock.getText());
+        java.sql.Date entryDate = new java.sql.Date(((java.util.Date) entry_date.getValue()).getTime());
+        java.sql.Date expiryDate = new java.sql.Date(((java.util.Date) expiry_date.getValue()).getTime());
+        String statusText = status.getText();
+
+        // Crear nuevo objeto SparePart
+        SparePart nuevo = new SparePart(
+            0, // El ID se autogenera
+            nameText,
+            typeText,
+            brandText,
+            modelText,
+            supplierId,
+            stockValue,
+            minStockValue,
+            entryDate.toLocalDate(),
+            expiryDate.toLocalDate(),
+            statusText
+        );
+
+        // Guardar en la base de datos
+        SparePartDAO.getInstance().add(nuevo);
+
+        JOptionPane.showMessageDialog(this, "Repuesto registrado exitosamente.");
+
+        // Limpiar campos
+        name.setText("");
+        type.setText("");
+        brand.setText("");
+        model.setText("");
+        supplier_id.setText("");
+        stock.setText("");
+        min_stock.setText("");
+        status.setText("");
+        entry_date.setValue(new java.util.Date());
+        expiry_date.setValue(new java.util.Date());
+
+    } catch (NumberFormatException ex) {
+        JOptionPane.showMessageDialog(this, "Error: Verifica que los campos numéricos sean correctos.");
+    } catch (Exception e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Ocurrió un error al registrar el repuesto.");
+    }
     }//GEN-LAST:event_addActionPerformed
 
     private void idDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idDeleteActionPerformed
@@ -543,7 +629,32 @@ public class sparePart extends javax.swing.JPanel {
     }//GEN-LAST:event_idDeleteActionPerformed
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
-        // TODO add your handling code here:
+        try {
+        String input = idDelete.getText().trim();
+        if (input.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor ingrese un ID válido.");
+            return;
+        }
+
+        int id = Integer.parseInt(input);
+
+        int confirm = JOptionPane.showConfirmDialog(this,
+                "¿Estás seguro de eliminar el repuesto con ID " + id + "?",
+                "Confirmar eliminación",
+                JOptionPane.YES_NO_OPTION);
+
+        if (confirm == JOptionPane.YES_OPTION) {
+            SparePartDAO.getInstance().delete(id);
+            JOptionPane.showMessageDialog(this, "Repuesto eliminado correctamente.");
+            idDelete.setText(""); // Limpiar campo
+        }
+
+    } catch (NumberFormatException ex) {
+        JOptionPane.showMessageDialog(this, "El ID debe ser un número válido.");
+    } catch (Exception e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error al eliminar el repuesto.");
+    }
     }//GEN-LAST:event_deleteActionPerformed
 
     private void nameUpdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameUpdActionPerformed
@@ -694,6 +805,10 @@ public class sparePart extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

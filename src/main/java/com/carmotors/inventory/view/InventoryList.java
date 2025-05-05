@@ -36,26 +36,37 @@ public class InventoryList extends javax.swing.JPanel {
     }
 
     private void filtrarTabla() {
-        String texto = txtBuscar.getText().toLowerCase();
-
-        DefaultTableModel modelo = (DefaultTableModel) TablaEmpleados.getModel();
-        DefaultTableModel filtrado = new DefaultTableModel(new String[]{
-            "ID", "Nombre", "Tipo", "Marca", "Modelo", "Proveedor", "Stock", "Stock Mínimo", "Ingreso", "Vencimiento", "Estado"
-        }, 0);
-
-        for (int i = 0; i < modelo.getRowCount(); i++) {
-            String nombre = modelo.getValueAt(i, 1).toString().toLowerCase(); // columna "Nombre"
-            if (nombre.contains(texto)) {
-                Object[] fila = new Object[modelo.getColumnCount()];
-                for (int j = 0; j < fila.length; j++) {
-                    fila[j] = modelo.getValueAt(i, j);
-                }
-                filtrado.addRow(fila);
-            }
-        }
-
-        TablaEmpleados.setModel(filtrado);
+        String texto = txtBuscar.getText().trim().toLowerCase();
+    if (texto.isEmpty()) {
+        cargarTabla(); // si no hay texto, carga todo
+        return;
     }
+
+    List<SparePart> resultado = controller.buscarPorNombre(texto);
+    String[] columnas = {"ID", "Nombre", "Tipo", "Marca", "Modelo", "Proveedor", "Stock", "Stock Mínimo", "Ingreso", "Vencimiento", "Estado"};
+    DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
+
+    for (SparePart sp : resultado) {
+        Object[] fila = {
+            sp.getId(),
+            sp.getName(),
+            sp.getType(),
+            sp.getBrand(),
+            sp.getModel(),
+            sp.getSupplierId(),
+            sp.getStock(),
+            sp.getMinStock(),
+            sp.getEntryDate(),
+            sp.getExpiryDate(),
+            sp.getStatus()
+        };
+        modelo.addRow(fila);
+    }
+
+    TablaEmpleados.setModel(modelo);
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -94,6 +105,12 @@ public class InventoryList extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(TablaEmpleados);
 
+        txtBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscarActionPerformed(evt);
+            }
+        });
+
         jLabel2.setText("BUSCAR");
 
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
@@ -130,6 +147,10 @@ public class InventoryList extends javax.swing.JPanel {
 
         add(bg, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarActionPerformed
 
     private void cargarTabla() {
         try {
