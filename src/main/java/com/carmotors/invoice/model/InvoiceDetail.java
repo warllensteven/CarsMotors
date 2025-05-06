@@ -9,7 +9,6 @@ package com.carmotors.invoice.model;
  * @author warle
  */
 public class InvoiceDetail {
-
     private int id;
     private int invoiceId;
     private String description;
@@ -17,16 +16,15 @@ public class InvoiceDetail {
     private double unitPrice;
     private double subtotal;
 
-    public InvoiceDetail(int id, int invoiceId, String description, int quantity, double unitPrice, double subtotal) {
-        this.id = id;
-        this.invoiceId = invoiceId;
+    public InvoiceDetail(String description, double price) {
         this.description = description;
-        this.quantity = quantity;
-        this.unitPrice = unitPrice;
-        this.subtotal = subtotal;
+        this.unitPrice = price;
+        this.quantity = 1;
+        this.subtotal = this.unitPrice * this.quantity;
     }
 
-    public InvoiceDetail(int invoiceId, String description, int quantity, double unitPrice, double subtotal) {
+    public InvoiceDetail(int id, int invoiceId, String description, int quantity, double unitPrice, double subtotal) {
+        this.id = id;
         this.invoiceId = invoiceId;
         this.description = description;
         this.quantity = quantity;
@@ -64,6 +62,7 @@ public class InvoiceDetail {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+        this.subtotal = this.unitPrice * this.quantity;
     }
 
     public double getUnitPrice() {
@@ -72,13 +71,14 @@ public class InvoiceDetail {
 
     public void setUnitPrice(double unitPrice) {
         this.unitPrice = unitPrice;
+        this.subtotal = this.unitPrice * this.quantity;
     }
 
     public double getSubtotal() {
         return subtotal;
     }
 
-    public void setSubtotal(double subtotal) {
-        this.subtotal = subtotal;
+    public double getPrice() {
+        return getUnitPrice();
     }
 }

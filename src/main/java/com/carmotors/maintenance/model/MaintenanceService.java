@@ -1,10 +1,20 @@
 package com.carmotors.maintenance.model;
 
+import com.carmotors.client.dao.ClientDAO;
+import com.carmotors.client.model.Client;
+import com.carmotors.invoice.model.Invoice;
+import com.carmotors.invoice.model.InvoiceDetail;
+import com.carmotors.invoice.util.InvoiceGenerator;
+import com.carmotors.invoice.dao.InvoiceDAO;
+
 import java.time.LocalDateTime;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class MaintenanceService {
     private int id;
-    private int idClient; // Nuevo campo
+    private int idClient;
     private int vehicleId;
     private String type;
     private String description;
@@ -44,7 +54,6 @@ public class MaintenanceService {
     }
 
     // Getters y setters
-
     public int getId() {
         return id;
     }
@@ -123,5 +132,45 @@ public class MaintenanceService {
 
     public void setTechnicianId(int technicianId) {
         this.technicianId = technicianId;
+    }
+
+    /**
+     * Genera una factura basada en el servicio de mantenimiento y la guarda como PDF.
+     * @param invoiceId El ID de la factura a generar.
+     * @param outputPath La ruta donde se guardará el PDF de la factura.
+     * @throws Exception Si hay un error al generar la factura o el PDF.
+     */
+    public void generateInvoice(int invoiceId, String outputPath) throws Exception {
+        // Asegurarse de que la carpeta facturas exista
+        Path outputDir = Paths.get(outputPath).getParent();
+        if (outputDir != null && !Files.exists(outputDir)) {
+            Files.createDirectories(outputDir);
+        }
+
+        // Obtener el nombre del cliente desde ClientDAO
+        Client client = ClientDAO.getInstance().getById(this.idClient);
+        String clientName = (client != null) ? client.getName() : "Cliente Desconocido";
+
+        // Crear una nueva factura
+        Invoice invoice = new Invoice();
+        invoice.setId(invoiceId);
+        invoice.setClientId(this.idClient);
+        invoice.setClientName(clientName);
+        invoice.setIssueDate(LocalDateTime.now());
+        invoice.setTotal(this.laborCost);
+        invoice.setCufe("CUFE" + invoiceId + "-" + System.currentTimeMillis());
+        invoice.setStatus("Pendiente");
+
+        // Añadir el detalle de la factura basado en el servicio
+        InvoiceDetail detail = new InvoiceDetail(this.description, this.laborCost);
+        detail.setQuantity(1);
+        invoice.addDetail(detail);
+
+        // Guardar la factura en la base de datos
+        InvoiceDAO invoiceDAO = InvoiceDAO.getInstance();
+        invoiceDAO.save(invoice);
+
+        // Generar el PDF
+        InvoiceGenerator.generateInvoice(invoice, outputPath);
     }
 }
