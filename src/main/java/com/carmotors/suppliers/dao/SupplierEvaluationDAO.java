@@ -2,14 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.carmotors.provider.dao;
+package com.carmotors.suppliers.dao;
 
 /**
  *
  * @author warle
  */
 import com.carmotors.database.DatabaseConnection;
-import com.carmotors.provider.model.SupplierEvaluation;
+import com.carmotors.suppliers.model.SupplierEvaluation;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -41,7 +41,7 @@ public class SupplierEvaluationDAO {
             stmt.setInt(3, evaluation.getPunctualityScore());
             stmt.setInt(4, evaluation.getQualityScore());
             stmt.setInt(5, evaluation.getCostScore());
-            stmt.setInt(6, evaluation.getOverallScore());
+            stmt.setDouble(6, evaluation.getOverallScore()); // Cambiado de setInt a setDouble
             stmt.executeUpdate();
         }
     }
@@ -60,7 +60,7 @@ public class SupplierEvaluationDAO {
                         rs.getInt("punctuality_score"),
                         rs.getInt("quality_score"),
                         rs.getInt("cost_score"),
-                        rs.getInt("overall_score")
+                        rs.getDouble("overall_score") // Cambiado de getInt a getDouble
                     );
                 }
             }
@@ -82,7 +82,7 @@ public class SupplierEvaluationDAO {
                     rs.getInt("punctuality_score"),
                     rs.getInt("quality_score"),
                     rs.getInt("cost_score"),
-                    rs.getInt("overall_score")
+                    rs.getDouble("overall_score") // Cambiado de getInt a getDouble
                 );
                 evaluations.add(evaluation);
             }
@@ -99,7 +99,7 @@ public class SupplierEvaluationDAO {
             stmt.setInt(3, evaluation.getPunctualityScore());
             stmt.setInt(4, evaluation.getQualityScore());
             stmt.setInt(5, evaluation.getCostScore());
-            stmt.setInt(6, evaluation.getOverallScore());
+            stmt.setDouble(6, evaluation.getOverallScore()); // Cambiado de setInt a setDouble
             stmt.setInt(7, evaluation.getId());
             stmt.executeUpdate();
         }

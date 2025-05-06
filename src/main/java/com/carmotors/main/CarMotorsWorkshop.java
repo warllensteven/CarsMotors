@@ -5,12 +5,11 @@
 package com.carmotors.main;
 
 import com.carmotors.client.view.Client;
-
 import com.carmotors.inventory.view.GestionInvetory;
 import com.carmotors.maintenance.view.Maintanence;
-import com.carmotors.provider.view.Supplier;
-import com.carmotors.stats.view.stats;
-import java.awt.BorderLayout;
+import com.carmotors.suppliers.view.SupplierManagementPanel;
+import com.carmotors.reports.view.StatisticsReportPanel;
+import java.awt.BorderLayout;  // Agrega este import
 import javax.swing.JPanel;
 
 /**
@@ -26,14 +25,13 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
         initComponents();
         setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
 
-
     }
 
-    private void ShowPanel(JPanel p) {
+    public void ShowPanel(JPanel p) {
         p.setLocation(0, 0);
         article.removeAll();
-        article.setLayout(new BorderLayout());  // Esto asegura el centrado
-        article.add(p);    // Este es correcto
+        article.setLayout(new BorderLayout());
+        article.add(p);
         article.revalidate();
         article.repaint();
     }
@@ -225,7 +223,7 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
     }//GEN-LAST:event_customerActionPerformed
 
     private void suppliersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suppliersActionPerformed
-        Supplier p4 = new Supplier();
+        SupplierManagementPanel p4 = new SupplierManagementPanel(this);
         ShowPanel(p4);
     }//GEN-LAST:event_suppliersActionPerformed
 
@@ -234,7 +232,7 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMouseClicked
 
     private void StatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StatsActionPerformed
-        stats p7 = new stats();
+        StatisticsReportPanel p7 = new StatisticsReportPanel(this);
         ShowPanel(p7);
 
     }//GEN-LAST:event_StatsActionPerformed
