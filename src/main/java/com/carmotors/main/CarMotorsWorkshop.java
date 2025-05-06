@@ -8,7 +8,7 @@ import com.carmotors.client.view.Client;
 
 import com.carmotors.inventory.view.GestionInvetory;
 import com.carmotors.maintenance.view.Maintanence;
-import com.carmotors.provider.view.Supplier;
+import com.carmotors.suppliers.view.SupplierManagementPanel;
 import com.carmotors.reports.view.StatisticsReportPanel;
 import com.carmotors.stats.view.stats;
 import java.awt.BorderLayout;
@@ -27,19 +27,18 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
         initComponents();
         setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
 
-
     }
 
-public void ShowPanel(JPanel p) {
-    System.out.println("ShowPanel called with panel: " + p.getClass().getName());
-    p.setLocation(0, 0);
-    article.removeAll();
-    article.setLayout(new BorderLayout());
-    article.add(p);
-    article.revalidate();
-    article.repaint();
-    System.out.println("Panel added to article. Component count: " + article.getComponentCount());
-}
+    public void ShowPanel(JPanel p) {
+        System.out.println("ShowPanel called with panel: " + p.getClass().getName());
+        p.setLocation(0, 0);
+        article.removeAll();
+        article.setLayout(new BorderLayout());
+        article.add(p);
+        article.revalidate();
+        article.repaint();
+        System.out.println("Panel added to article. Component count: " + article.getComponentCount());
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -228,7 +227,7 @@ public void ShowPanel(JPanel p) {
     }//GEN-LAST:event_customerActionPerformed
 
     private void suppliersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suppliersActionPerformed
-        Supplier p4 = new Supplier();
+        SupplierManagementPanel p4 = new SupplierManagementPanel(this); // Pasar 'this' como argumento
         ShowPanel(p4);
     }//GEN-LAST:event_suppliersActionPerformed
 
@@ -237,7 +236,7 @@ public void ShowPanel(JPanel p) {
     }//GEN-LAST:event_exitMouseClicked
 
     private void StatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StatsActionPerformed
-        StatisticsReportPanel p7 = new StatisticsReportPanel(this); 
+        StatisticsReportPanel p7 = new StatisticsReportPanel(this);
         ShowPanel(p7);
     }//GEN-LAST:event_StatsActionPerformed
 

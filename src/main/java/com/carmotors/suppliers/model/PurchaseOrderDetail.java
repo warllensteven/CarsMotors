@@ -2,38 +2,35 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.carmotors.provider.model;
+package com.carmotors.suppliers.model;
 
 /**
  *
  * @author warle
  */
-import java.time.LocalDate;
-
-public class SupplierProduct {
-
+public class PurchaseOrderDetail {
     private int id;
-    private int supplierId;
+    private int purchaseOrderId;
     private int sparePartId;
-    private LocalDate supplyDate;
     private int quantity;
     private double unitPrice;
+    private double subtotal;
 
-    public SupplierProduct(int id, int supplierId, int sparePartId, LocalDate supplyDate, int quantity, double unitPrice) {
+    public PurchaseOrderDetail(int id, int purchaseOrderId, int sparePartId, int quantity, double unitPrice, double subtotal) {
         this.id = id;
-        this.supplierId = supplierId;
+        this.purchaseOrderId = purchaseOrderId;
         this.sparePartId = sparePartId;
-        this.supplyDate = supplyDate;
         this.quantity = quantity;
         this.unitPrice = unitPrice;
+        this.subtotal = subtotal;
     }
 
-    public SupplierProduct(int supplierId, int sparePartId, LocalDate supplyDate, int quantity, double unitPrice) {
-        this.supplierId = supplierId;
+    public PurchaseOrderDetail(int purchaseOrderId, int sparePartId, int quantity, double unitPrice, double subtotal) {
+        this.purchaseOrderId = purchaseOrderId;
         this.sparePartId = sparePartId;
-        this.supplyDate = supplyDate;
         this.quantity = quantity;
         this.unitPrice = unitPrice;
+        this.subtotal = subtotal;
     }
 
     public int getId() {
@@ -44,12 +41,12 @@ public class SupplierProduct {
         this.id = id;
     }
 
-    public int getSupplierId() {
-        return supplierId;
+    public int getPurchaseOrderId() {
+        return purchaseOrderId;
     }
 
-    public void setSupplierId(int supplierId) {
-        this.supplierId = supplierId;
+    public void setPurchaseOrderId(int purchaseOrderId) {
+        this.purchaseOrderId = purchaseOrderId;
     }
 
     public int getSparePartId() {
@@ -58,14 +55,6 @@ public class SupplierProduct {
 
     public void setSparePartId(int sparePartId) {
         this.sparePartId = sparePartId;
-    }
-
-    public LocalDate getSupplyDate() {
-        return supplyDate;
-    }
-
-    public void setSupplyDate(LocalDate supplyDate) {
-        this.supplyDate = supplyDate;
     }
 
     public int getQuantity() {
@@ -82,5 +71,13 @@ public class SupplierProduct {
 
     public void setUnitPrice(double unitPrice) {
         this.unitPrice = unitPrice;
+    }
+
+    public double getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(double subtotal) {
+        this.subtotal = subtotal;
     }
 }

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.carmotors.provider.model;
+package com.carmotors.suppliers.model;
 
 /**
  *
@@ -11,17 +11,16 @@ package com.carmotors.provider.model;
 import java.time.LocalDate;
 
 public class SupplierEvaluation {
-
     private int id;
     private int supplierId;
     private LocalDate evaluationDate;
     private int punctualityScore;
     private int qualityScore;
     private int costScore;
-    private int overallScore;
+    private double overallScore; // Cambiado de int a double
 
     public SupplierEvaluation(int id, int supplierId, LocalDate evaluationDate, int punctualityScore,
-            int qualityScore, int costScore, int overallScore) {
+            int qualityScore, int costScore, double overallScore) {
         this.id = id;
         this.supplierId = supplierId;
         this.evaluationDate = evaluationDate;
@@ -31,7 +30,7 @@ public class SupplierEvaluation {
         this.overallScore = overallScore;
     }
 
-    public SupplierEvaluation(int supplierId, LocalDate evaluationDate, int punctualityScore, int qualityScore, int costScore, int overallScore) {
+    public SupplierEvaluation(int supplierId, LocalDate evaluationDate, int punctualityScore, int qualityScore, int costScore, double overallScore) {
         this.supplierId = supplierId;
         this.evaluationDate = evaluationDate;
         this.punctualityScore = punctualityScore;
@@ -40,7 +39,6 @@ public class SupplierEvaluation {
         this.overallScore = overallScore;
     }
     
-
     public int getId() {
         return id;
     }
@@ -89,11 +87,11 @@ public class SupplierEvaluation {
         this.costScore = costScore;
     }
 
-    public int getOverallScore() {
+    public double getOverallScore() {
         return overallScore;
     }
 
-    public void setOverallScore(int overallScore) {
+    public void setOverallScore(double overallScore) {
         this.overallScore = overallScore;
     }
 }

@@ -2,14 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.carmotors.provider.dao;
+package com.carmotors.suppliers.dao;
 
 /**
  *
  * @author warle
  */
 import com.carmotors.database.DatabaseConnection;
-import com.carmotors.provider.model.Supplier;
+import com.carmotors.suppliers.model.Supplier;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

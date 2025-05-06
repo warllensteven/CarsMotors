@@ -4,7 +4,7 @@
  */
 package com.carmotors.core.factory;
 
-import com.carmotors.provider.model.Supplier;
+import com.carmotors.suppliers.model.Supplier;
 
 /**
  *
