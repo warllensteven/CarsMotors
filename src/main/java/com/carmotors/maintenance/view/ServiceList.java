@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.carmotors.maintenance.view;
-
+// Hi
 
 import javax.swing.table.DefaultTableModel;
 import com.carmotors.inventory.controller.SparePartController;
