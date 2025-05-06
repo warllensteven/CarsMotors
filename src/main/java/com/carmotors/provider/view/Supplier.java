@@ -35,7 +35,7 @@ public class Supplier extends javax.swing.JPanel {
         bg.setPreferredSize(new java.awt.Dimension(1280, 720));
 
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 0, 60)); // NOI18N
-        jLabel1.setText("Archivo no disponible Temporalmente");
+        jLabel1.setText("Función no disponible Temporalmente");
 
         jLabel2.setFont(new java.awt.Font("Liberation Sans", 0, 60)); // NOI18N
         jLabel2.setText("Agradecemos su paciencia.");
@@ -48,18 +48,17 @@ public class Supplier extends javax.swing.JPanel {
         bgLayout.setHorizontalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bgLayout.createSequentialGroup()
-                .addGap(261, 261, 261)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
-                .addContainerGap(145, Short.MAX_VALUE)
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(134, 134, 134))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(369, 369, 369))))
+                    .addGroup(bgLayout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(jLabel1))
+                    .addGroup(bgLayout.createSequentialGroup()
+                        .addGap(196, 196, 196)
+                        .addComponent(jLabel2))
+                    .addGroup(bgLayout.createSequentialGroup()
+                        .addGap(288, 288, 288)
+                        .addComponent(jLabel3)))
+                .addContainerGap(200, Short.MAX_VALUE))
         );
         bgLayout.setVerticalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
