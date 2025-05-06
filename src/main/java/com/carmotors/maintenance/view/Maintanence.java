@@ -147,7 +147,7 @@ public class Maintanence extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void inventoryListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryListActionPerformed
-        InventoryList p = new InventoryList();
+        ServiceList p = new ServiceList();
 
         ShowPanel(p);
     }//GEN-LAST:event_inventoryListActionPerformed

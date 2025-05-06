@@ -21,7 +21,7 @@ import com.carmotors.maintenance.model.MaintenanceService;
 public class ServiceList extends javax.swing.JPanel {
 
     DefaultTableModel modelo = new DefaultTableModel();
-    private final SparePartController controller = new SparePartController();
+    private final MaintenanceServiceController controller = new MaintenanceServiceController();
 
     public ServiceList() {
         initComponents();
