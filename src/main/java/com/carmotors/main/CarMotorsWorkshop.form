@@ -72,17 +72,15 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="Stats" pref="821" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="suppliers" max="32767" attributes="0"/>
-                                  <Component id="customer" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="maintenance" alignment="0" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="exit" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="Title" pref="778" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="inventory" alignment="0" max="32767" attributes="0"/>
+                              <Component id="suppliers" max="32767" attributes="0"/>
+                              <Component id="customer" alignment="0" max="32767" attributes="0"/>
+                              <Component id="maintenance" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="exit" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="Title" pref="778" max="32767" attributes="0"/>
                               </Group>
+                              <Component id="inventory" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
                       </Group>

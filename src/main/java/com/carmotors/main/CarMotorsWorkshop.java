@@ -9,6 +9,7 @@ import com.carmotors.client.view.Client;
 import com.carmotors.inventory.view.GestionInvetory;
 import com.carmotors.maintenance.view.Maintanence;
 import com.carmotors.provider.view.Supplier;
+import com.carmotors.reports.view.StatisticsReportPanel;
 import com.carmotors.stats.view.stats;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
@@ -29,14 +30,16 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
 
     }
 
-    private void ShowPanel(JPanel p) {
-        p.setLocation(0, 0);
-        article.removeAll();
-        article.setLayout(new BorderLayout());  // Esto asegura el centrado
-        article.add(p);    // Este es correcto
-        article.revalidate();
-        article.repaint();
-    }
+public void ShowPanel(JPanel p) {
+    System.out.println("ShowPanel called with panel: " + p.getClass().getName());
+    p.setLocation(0, 0);
+    article.removeAll();
+    article.setLayout(new BorderLayout());
+    article.add(p);
+    article.revalidate();
+    article.repaint();
+    System.out.println("Panel added to article. Component count: " + article.getComponentCount());
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -234,9 +237,8 @@ public class CarMotorsWorkshop extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMouseClicked
 
     private void StatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StatsActionPerformed
-        stats p7 = new stats();
+        StatisticsReportPanel p7 = new StatisticsReportPanel(this); 
         ShowPanel(p7);
-
     }//GEN-LAST:event_StatsActionPerformed
 
     /**

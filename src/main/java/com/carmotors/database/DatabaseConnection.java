@@ -23,7 +23,9 @@ public class DatabaseConnection {
     private DatabaseConnection() {
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            System.out.println("Conexión a la base de datos exitosa.");
         } catch (SQLException e) {
+            System.err.println("Error al conectar con la base de datos: " + e.getMessage());
             throw new RuntimeException("Error al conectar con la base de datos: " + e.getMessage(), e);
         }
     }
