@@ -93,4 +93,35 @@ public class InvoiceDAO {
             stmt.executeUpdate();
         }
     }
+    
+    public List<Invoice> getInvoicesByClientName(String clientName) throws SQLException {
+    List<Invoice> invoices = new ArrayList<>();
+    String query = "SELECT * FROM invoices WHERE client_id IN (SELECT id FROM clients WHERE name LIKE ?)";
+    
+    try (Connection conn = DatabaseConnection.getInstance().getConnection();
+         PreparedStatement stmt = conn.prepareStatement(query)) {
+        stmt.setString(1, "%" + clientName + "%"); // El % es para hacer la búsqueda más flexible (similar a LIKE)
+        
+        try (ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                int clientId = rs.getInt("client_id");
+                Client client = ClientDAO.getInstance().getById(clientId);
+                String clientNameFromDb = (client != null) ? client.getName() : "Desconocido";
+                
+                invoices.add(new Invoice(
+                    rs.getInt("id"),
+                    clientId,
+                    clientNameFromDb,
+                    rs.getTimestamp("issue_date").toLocalDateTime(),
+                    rs.getDouble("total"),
+                    rs.getString("cufe"),
+                    rs.getString("qr_code"),
+                    rs.getString("status"),
+                    null // Aquí puedes agregar la lógica para obtener un descuento si es necesario
+                ));
+            }
+        }
+    }
+    return invoices;
+}
 }

@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.carmotors.client.dao;
 
-/**
- *
- * @author warle
- */
 import com.carmotors.client.model.Vehicle;
 import com.carmotors.database.DatabaseConnection;
 import java.sql.Connection;
@@ -18,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VehicleDAO {
+
     private static VehicleDAO instance;
 
     private VehicleDAO() {
@@ -65,10 +58,11 @@ public class VehicleDAO {
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     return new Vehicle(
-                                                rs.getString("brand"),
-                        rs.getString("model"),
-                        rs.getString("plate"),
-                        rs.getString("type")
+                            rs.getInt("client_id"),  // Corregido el nombre de la columna
+                            rs.getString("brand"),
+                            rs.getString("model"),
+                            rs.getString("plate"),
+                            rs.getString("type")
                     );
                 }
             }
@@ -80,14 +74,14 @@ public class VehicleDAO {
         List<Vehicle> vehicles = new ArrayList<>();
         String query = "SELECT * FROM vehicles";
         Connection conn = DatabaseConnection.getInstance().getConnection();
-        try (PreparedStatement stmt = conn.prepareStatement(query);
-             ResultSet rs = stmt.executeQuery()) {
+        try (PreparedStatement stmt = conn.prepareStatement(query); ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
                 Vehicle vehicle = new Vehicle(
-                                        rs.getString("brand"),
-                    rs.getString("model"),
-                    rs.getString("plate"),
-                    rs.getString("type")
+                        rs.getInt("client_id"),  // Corregido el nombre de la columna
+                        rs.getString("brand"),
+                        rs.getString("model"),
+                        rs.getString("plate"),
+                        rs.getString("type")
                 );
                 vehicles.add(vehicle);
             }

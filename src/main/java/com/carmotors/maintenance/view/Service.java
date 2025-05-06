@@ -98,7 +98,7 @@ public class Service extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 30)); // NOI18N
-        jLabel1.setText("AGREGAR REPUESTO.");
+        jLabel1.setText("REGISTRAR SERVICIO");
 
         jLabel2.setText("ID Cliente:");
 
@@ -456,11 +456,11 @@ public class Service extends javax.swing.JPanel {
         bg.setLayout(bgLayout);
         bgLayout.setHorizontalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         bgLayout.setVerticalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -602,7 +602,7 @@ public class Service extends javax.swing.JPanel {
     }//GEN-LAST:event_typeActionPerformed
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
-         try {
+        try {
         int idClient = Integer.parseInt(client_id.getText());
         int vehicleId = Integer.parseInt(vehiculo.getText());
         String tipoServicio = type.getText();

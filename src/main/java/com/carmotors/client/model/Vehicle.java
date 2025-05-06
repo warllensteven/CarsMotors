@@ -1,51 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.carmotors.client.model;
 
-/**
- *
- * @author warle
- */
 public class Vehicle {
-
-        private int id;
+    private int id;
     private int clientId;
     private String brand;
     private String model;
     private String plate;
     private String type;
 
-    public Vehicle(int id, int clientId, String brand, String model, String plate, String type) {
-        this.id = id;
+    // Constructor adecuado para crear un vehículo
+    public Vehicle(int clientId, String brand, String model, String plate, String type) {
         this.clientId = clientId;
         this.brand = brand;
         this.model = model;
         this.plate = plate;
         this.type = type;
     }
-    
-    // Constructor sin ID
-public Vehicle(int clientId, String brand, String model, String plate, String type) {
-    this.clientId = clientId;
-    this.brand = brand;
-    this.model = model;
-    this.plate = plate;
-    this.type = type;
-}
 
-// Constructor sin clientId ni id (no recomendado si clientId es obligatorio)
-public Vehicle(String brand, String model, String plate, String type) {
-    this.brand = brand;
-    this.model = model;
-    this.plate = plate;
-    this.type = type;
-}
-
-
-
-    // Getters and setters
+    // Métodos getter y setter
     public int getId() {
         return id;
     }

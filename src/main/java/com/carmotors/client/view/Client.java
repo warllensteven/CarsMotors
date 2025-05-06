@@ -62,7 +62,7 @@ public class Client extends javax.swing.JPanel {
         report.setBackground(new java.awt.Color(0, 0, 0));
         report.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         report.setForeground(new java.awt.Color(255, 255, 255));
-        report.setText("Todas las facturas");
+        report.setText("Registro Vehiculo");
         report.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         report.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,7 +79,7 @@ public class Client extends javax.swing.JPanel {
         sparePart.setBackground(new java.awt.Color(0, 0, 0));
         sparePart.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         sparePart.setForeground(new java.awt.Color(255, 255, 255));
-        sparePart.setText("Facturas por cliente");
+        sparePart.setText("Facturas");
         sparePart.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         sparePart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,12 +162,12 @@ public class Client extends javax.swing.JPanel {
         content.repaint();
     }
     private void reportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportActionPerformed
-        HistorialService p3 = new HistorialService();
+        VehiclePanel p3 = new VehiclePanel();
         ShowPanel(p3);
     }//GEN-LAST:event_reportActionPerformed
 
     private void sparePartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sparePartActionPerformed
-        Service p2 = new Service();
+        InvoiceClients p2 = new InvoiceClients();
         ShowPanel(p2);
     }//GEN-LAST:event_sparePartActionPerformed
 

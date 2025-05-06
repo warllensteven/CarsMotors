@@ -34,6 +34,8 @@ import java.nio.file.Path;
 public class InvoiceGenerator {
     public static void generateInvoice(Invoice invoice, String outputPath) throws Exception {
         
+      
+        
         PdfWriter writer = new PdfWriter(outputPath);
         PdfDocument pdf = new PdfDocument(writer);
         Document document = new Document(pdf);

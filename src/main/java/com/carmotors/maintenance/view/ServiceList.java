@@ -102,8 +102,8 @@ public class ServiceList extends javax.swing.JPanel {
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 40)); // NOI18N
-        jLabel1.setText("Inventario");
+        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 30)); // NOI18N
+        jLabel1.setText("SERVICIOS");
 
         TablaEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -155,7 +155,7 @@ public class ServiceList extends javax.swing.JPanel {
                     .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap(131, Short.MAX_VALUE))
         );
 
         add(bg, java.awt.BorderLayout.CENTER);
