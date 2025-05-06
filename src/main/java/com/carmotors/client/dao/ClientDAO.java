@@ -58,10 +58,12 @@ public class ClientDAO {
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     return new Client(
-                                                rs.getString("name"),
+                        rs.getInt("id"),
+                        rs.getString("name"),
                         rs.getString("identification"),
                         rs.getString("phone"),
-                    rs.getString("email"));
+                        rs.getString("email")
+                    );
                 }
             }
         }
@@ -76,9 +78,12 @@ public class ClientDAO {
              ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
                 Client client = new Client(
-                                        rs.getString("name"),
+                    rs.getInt("id"),
+                    rs.getString("name"),
                     rs.getString("identification"),
-                    rs.getString("phone"));
+                    rs.getString("phone"),
+                    rs.getString("email")
+                );
                 clients.add(client);
             }
         }

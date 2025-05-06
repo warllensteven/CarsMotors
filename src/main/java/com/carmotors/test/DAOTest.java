@@ -10,138 +10,87 @@ package com.carmotors.test;
  */
 import com.carmotors.client.dao.ClientDAO;
 import com.carmotors.client.model.Client;
-import com.carmotors.inventory.dao.SparePartDAO;
-import com.carmotors.inventory.model.SparePart;
-import com.carmotors.provider.dao.SupplierDAO;
-import com.carmotors.provider.model.Supplier;
-import com.carmotors.client.dao.VehicleDAO;
-import com.carmotors.client.model.Vehicle;
 import com.carmotors.database.DatabaseConnection;
+import com.carmotors.invoice.dao.InvoiceDAO;
+import com.carmotors.invoice.model.Invoice;
+import com.carmotors.invoice.model.InvoiceDetail;
+import com.carmotors.invoice.util.InvoiceGenerator;
 
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.List;
+import java.time.LocalDateTime;
 
 public class DAOTest {
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
         try {
-            testSparePartDAO();
-            testSupplierDAO();
-            testVehicleDAO();
-            System.out.println("Todas las pruebas completadas exitosamente.");
+            // Prueba de conexión a la base de datos
+            DatabaseConnection dbConn = DatabaseConnection.getInstance();
+            System.out.println("Conexión a la base de datos establecida con éxito.");
+
+            // Crear un cliente
+            ClientDAO clientDAO = ClientDAO.getInstance();
+            Client client = new Client(1, "Carlos Pérez", "1234567890", "123456789", "carlos@email.com");
+            // Guardar el cliente (si no existe, asegúrate de que ClientDAO tenga un método save)
+            // Nota: Si ClientDAO no tiene save, descomenta y ajusta según tu implementación
+            // clientDAO.save(client);
+
+            // Verificar si el cliente existe
+            Client retrievedClient = clientDAO.getById(1);
+            if (retrievedClient != null) {
+                System.out.println("Cliente encontrado: " + retrievedClient.getName());
+            } else {
+                System.out.println("Cliente no encontrado, creándolo...");
+                // Aquí deberías implementar el guardado si no existe
+            }
+
+            // Crear una factura
+            InvoiceDAO invoiceDAO = InvoiceDAO.getInstance();
+            Invoice invoice = new Invoice();
+            invoice.setId(1);
+            invoice.setClientId(retrievedClient != null ? retrievedClient.getId() : 1);
+            invoice.setClientName(retrievedClient != null ? retrievedClient.getName() : "Carlos Pérez");
+            invoice.setIssueDate(LocalDateTime.now());
+            invoice.setTotal(80.0);
+            invoice.setCufe("CUFE123456789");
+            invoice.setStatus("Pendiente"); // Establecer un valor predeterminado para status
+            invoice.addDetail(new InvoiceDetail("Cambio de aceite", 50.0));
+            invoice.addDetail(new InvoiceDetail("Revisión de frenos", 30.0));
+
+            // Guardar la factura
+            invoiceDAO.save(invoice);
+            System.out.println("Factura guardada con éxito.");
+
+            // Generar el PDF de la factura
+            String outputPath = "C:\\Users\\warle\\OneDrive\\Escritorio\\factura_electronica.pdf";
+            InvoiceGenerator.generateInvoice(invoice, outputPath);
+            System.out.println("Factura generada en PDF: " + outputPath);
+
+            // Consultar la factura por ID
+            Invoice retrievedInvoice = invoiceDAO.getById(1);
+            if (retrievedInvoice != null) {
+                System.out.println("Factura encontrada - ID: " + retrievedInvoice.getId() +
+                                   ", Cliente: " + retrievedInvoice.getClientName() +
+                                   ", Total: $" + retrievedInvoice.getTotal() +
+                                   ", Status: " + retrievedInvoice.getStatus());
+            } else {
+                System.out.println("Factura no encontrada.");
+            }
+
+            // Listar todas las facturas
+            System.out.println("Listado de todas las facturas:");
+            invoiceDAO.getAll().forEach(inv -> System.out.println("ID: " + inv.getId() +
+                                                                 ", Cliente: " + inv.getClientName() +
+                                                                 ", Total: $" + inv.getTotal() +
+                                                                 ", Status: " + inv.getStatus()));
+
         } catch (SQLException e) {
-            System.err.println("Error durante las pruebas: " + e.getMessage());
+            System.err.println("Error al ejecutar la prueba: " + e.getMessage());
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.err.println("Error al generar la factura en PDF: " + e.getMessage());
+            e.printStackTrace();
         } finally {
+            // Cerrar la conexión (opcional, dependiendo de tu diseño)
             DatabaseConnection.getInstance().closeConnection();
         }
     }
-
-    private static void testSparePartDAO() throws SQLException {
-        SupplierDAO supplierDAO = SupplierDAO.getInstance();
-        SparePartDAO sparePartDAO = SparePartDAO.getInstance();
-        
-        // Crear (Insertar) un proveedor primero
-        Supplier supplier = new Supplier(0, "Proveedor Bosch", "123456789", "contact@bosch.com", "Semanal");
-        supplierDAO.add(supplier);
-        System.out.println("Supplier agregado con ID: " + supplier.getId());
-
-        // Crear (Insertar) un r public static void main(String[] args) {
-        try {
-            testSparePartDAO();
-            testSupplierDAO();
-            testVehicleDAO();
-            System.out.println("Todas las pruebas completadas exitosamente.");
-        } catch (SQLException e) {
-            System.err.println("Error durante las pruebas: " + e.getMessage());
-        } finally {
-            DatabaseConnection.getInstance().closeConnection();
-        }
-    }
-
-    private static void testSparePartDAO() throws SQLException {
-        SupplierDAO supplierDAO = SupplierDAO.getInstance();
-        SparePartDAO sparePartDAO = SparePartDAO.getInstance();
-        
-        // Crear (Iepuesto con el supplier_id del proveedor recién creado
-        SparePart sparePart = new SparePart(0, "Frenos Delanteros", "Mecánico", "Bosch", "X123", supplier.getId(), 10, 5, LocalDate.now(), LocalDate.now().plusYears(1), "Disponible");
-        sparePartDAO.add(sparePart);
-        System.out.println("SparePart agregado con ID: " + sparePart.getId());
-
-        // Leer (Consultar por ID)
-        SparePart retrievedSparePart = sparePartDAO.getById(sparePart.getId());
-        System.out.println("SparePart recuperado: " + retrievedSparePart.getName());
-
-        // Actualizar
-        retrievedSparePart.setStock(15);
-        sparePartDAO.update(retrievedSparePart);
-        System.out.println("SparePart actualizado, nuevo stock: " + sparePartDAO.getById(sparePart.getId()).getStock());
-
-        // Consultar todos
-        List<SparePart> spareParts = sparePartDAO.getAll();
-        System.out.println("Total SpareParts: " + spareParts.size());
-
-        // Eliminar el repuesto y el proveedor
-        sparePartDAO.delete(sparePart.getId());
-        supplierDAO.delete(supplier.getId());
-        System.out.println("SparePart y Supplier eliminados. Nuevo total SpareParts: " + sparePartDAO.getAll().size());
-    }
-
-    private static void testSupplierDAO() throws SQLException {
-        SupplierDAO supplierDAO = SupplierDAO.getInstance();
-
-        // Crear (Insertar)
-        Supplier supplier = new Supplier(0, "Proveedor Toyota", "987654321", "contact@toyota.com", "Mensual");
-        supplierDAO.add(supplier);
-        System.out.println("Supplier agregado con ID: " + supplier.getId());
-
-        // Leer (Consultar por ID)
-        Supplier retrievedSupplier = supplierDAO.getById(supplier.getId());
-        System.out.println("Supplier recuperado: " + retrievedSupplier.getName());
-
-        // Actualizar
-        retrievedSupplier.setContact("newcontact@toyota.com");
-        supplierDAO.update(retrievedSupplier);
-        System.out.println("Supplier actualizado, nuevo contacto: " + supplierDAO.getById(supplier.getId()).getContact());
-
-        // Consultar todos
-        List<Supplier> suppliers = supplierDAO.getAll();
-        System.out.println("Total Suppliers: " + suppliers.size());
-
-        // Eliminar
-        supplierDAO.delete(supplier.getId());
-        System.out.println("Supplier eliminado. Nuevo total: " + supplierDAO.getAll().size());
-    }
-
-    private static void testVehicleDAO() throws SQLException {
-        ClientDAO clientDAO = ClientDAO.getInstance();
-        VehicleDAO vehicleDAO = VehicleDAO.getInstance();
-
-        // Crear (Insertar) un cliente primero
-        Client client = new Client(0, "Juan Pérez", "1234567890", "123456789", "juan@email.com");
-        clientDAO.add(client);
-        System.out.println("Client agregado con ID: " + client.getId());
-
-        // Crear (Insertar) un vehículo con el client_id del cliente recién creado
-        Vehicle vehicle = new Vehicle(0, client.getId(), "Toyota", "Corolla", "XYZ123", "otro");
-        vehicleDAO.add(vehicle);
-        System.out.println("Vehicle agregado con ID: " + vehicle.getId());
-
-        // Leer (Consultar por ID)
-        Vehicle retrievedVehicle = vehicleDAO.getById(vehicle.getId());
-        System.out.println("Vehicle recuperado: " + retrievedVehicle.getModel());
-
-        // Actualizar
-        retrievedVehicle.setPlate("ABC789");
-        vehicleDAO.update(retrievedVehicle);
-        System.out.println("Vehicle actualizado, nueva placa: " + vehicleDAO.getById(vehicle.getId()).getPlate());
-
-        // Consultar todos
-        List<Vehicle> vehicles = vehicleDAO.getAll();
-        System.out.println("Total Vehicles: " + vehicles.size());
-
-        // Eliminar el vehículo y el cliente
-        vehicleDAO.delete(vehicle.getId());
-        clientDAO.delete(client.getId());
-        System.out.println("Vehicle y Client eliminados. Nuevo total Vehicles: " + vehicleDAO.getAll().size());
-    }*/
 }
