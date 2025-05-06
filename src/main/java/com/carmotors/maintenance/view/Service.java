@@ -4,8 +4,15 @@
  */
 package com.carmotors.maintenance.view;
 
+import com.carmotors.client.dao.ClientDAO;
+import com.carmotors.client.model.Client;
+import com.carmotors.invoice.dao.InvoiceDAO;
+import com.carmotors.invoice.model.Invoice;
+import com.carmotors.invoice.model.InvoiceDetail;
+import com.carmotors.invoice.util.InvoiceGenerator;
 import com.carmotors.maintenance.controller.MaintenanceServiceController;
 import com.carmotors.maintenance.model.MaintenanceService;
+import java.time.LocalDateTime;
 
 import javax.swing.JOptionPane;
 
@@ -595,43 +602,72 @@ public class Service extends javax.swing.JPanel {
     }//GEN-LAST:event_typeActionPerformed
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
-        try {
-            int idClient = Integer.parseInt(client_id.getText()); // Asegúrate de tener este campo en el formulario
-            int vehicleId = Integer.parseInt(vehiculo.getText());
-            String tipoServicio = type.getText(); // O usa nameClient si lo estás usando para esto
-            String descripcion = description.getText();
-            double costo = Double.parseDouble(costoLabor.getText()); // Agrega campo de texto si aún no lo tienes
-            String estado = "Pendiente"; // Estado inicial
-            java.time.LocalDateTime fechaInicio = ((java.util.Date) entry_date.getValue()).toInstant()
-                    .atZone(java.time.ZoneId.systemDefault())
-                    .toLocalDateTime();
-            java.time.LocalDateTime fechaFin = null; // Puede modificarse luego
-            int tecnicoId = Integer.parseInt(Technician_id.getText());
+         try {
+        int idClient = Integer.parseInt(client_id.getText());
+        int vehicleId = Integer.parseInt(vehiculo.getText());
+        String tipoServicio = type.getText();
+        String descripcion = description.getText();
+        double costo = Double.parseDouble(costoLabor.getText());
+        String estado = "Pendiente";
+        LocalDateTime fechaInicio = ((java.util.Date) entry_date.getValue()).toInstant()
+                .atZone(java.time.ZoneId.systemDefault()).toLocalDateTime();
+        LocalDateTime fechaFin = null;
+        int tecnicoId = Integer.parseInt(Technician_id.getText());
 
-            // Crear el nuevo mantenimiento con el constructor que incluye idClient
-            MaintenanceService nuevo = new MaintenanceService(
-                    idClient, vehicleId, tipoServicio, descripcion, costo, estado, fechaInicio, fechaFin, tecnicoId
-            );
+        // 1. Crear y guardar el servicio
+        MaintenanceService nuevo = new MaintenanceService(
+            idClient, vehicleId, tipoServicio, descripcion, costo,
+            estado, fechaInicio, fechaFin, tecnicoId
+        );
+        controller.agregarServicio(nuevo);  // Guardar servicio
 
-            controller.agregarServicio(nuevo);
+        // 2. Crear la factura
+             Invoice factura = new Invoice();
+        factura.setClientId(idClient);
+        Client cliente = ClientDAO.getInstance().getById(idClient);
+        if (cliente != null) {
+    factura.setClientName(cliente.getName());
+}
 
-            JOptionPane.showMessageDialog(this, "Servicio registrado exitosamente.");
+        factura.setMaintenanceServiceId(nuevo.getId()); // nuevo.getId() debe retornar el ID generado
+        factura.setIssueDate(LocalDateTime.MAX.now());
+        factura.setTotal(costo);
+        factura.setCufe("CUFE" + System.currentTimeMillis()); // Simple CUFE
+        factura.setQrCode("QR_" + nuevo.getId()); // Código simple
+        factura.setStatus("Pendiente");
 
-            // Limpiar campos
-            client_id.setText("");
-            vehiculo.setText("");
-            type.setText(""); // O limpia el campo si no es un JComboBox
-            description.setText("");
-            costoLabor.setText("");
-            Technician_id.setText("");
-            entry_date.setValue(new java.util.Date());
+        // Añadir la descripción como detalle
+        factura.addDetail(new InvoiceDetail(1, descripcion, costo));
 
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Error: Verifica los campos numéricos.");
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error al registrar el servicio.");
+        // Aplicar descuento si existe
+        if (factura.getDiscountStrategy() != null) {
+            factura.applyDiscount();
         }
+
+        // Guardar la factura
+             InvoiceDAO.getInstance().save(factura);
+
+        // Generar el PDF de la factura
+        String outputPath = "factura_" + factura.getClientId() + "_" + factura.getId() + ".pdf";
+             InvoiceGenerator.generateInvoice(factura, outputPath);
+
+        JOptionPane.showMessageDialog(this, "Servicio y factura registrados correctamente.");
+
+        // 3. Limpiar formulario
+        client_id.setText("");
+        vehiculo.setText("");
+        type.setText("");
+        description.setText("");
+        costoLabor.setText("");
+        Technician_id.setText("");
+        entry_date.setValue(new java.util.Date());
+
+    } catch (NumberFormatException ex) {
+        JOptionPane.showMessageDialog(this, "Error: Verifica los campos numéricos.");
+    } catch (Exception e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error al registrar el servicio o generar la factura.");
+    }
     }//GEN-LAST:event_addActionPerformed
 
     private void Technician_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Technician_idActionPerformed

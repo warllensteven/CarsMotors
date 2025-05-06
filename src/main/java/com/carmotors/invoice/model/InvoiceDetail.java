@@ -32,6 +32,14 @@ public class InvoiceDetail {
         this.subtotal = subtotal;
     }
 
+  public InvoiceDetail(int i, String descripcion, double costo) {
+    this.invoiceId = i; // o puedes ignorarlo si aún no tienes el ID de la factura
+    this.description = descripcion;
+    this.unitPrice = costo;
+    this.quantity = 1;
+    this.subtotal = this.unitPrice * this.quantity;
+}
+
     public int getId() {
         return id;
     }
