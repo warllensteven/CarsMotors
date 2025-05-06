@@ -161,7 +161,7 @@ public class Maintanence extends javax.swing.JPanel {
         content.repaint();
     }
     private void reportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportActionPerformed
-        report p3 = new report();
+        HistorialService p3 = new HistorialService();
         ShowPanel(p3);
     }//GEN-LAST:event_reportActionPerformed
 
