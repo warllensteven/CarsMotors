@@ -31,7 +31,7 @@ public class Supplier extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
-        bg.setBackground(new java.awt.Color(255, 204, 204));
+        bg.setBackground(new java.awt.Color(255, 255, 255));
         bg.setPreferredSize(new java.awt.Dimension(1280, 720));
 
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 0, 60)); // NOI18N
@@ -40,7 +40,7 @@ public class Supplier extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Liberation Sans", 0, 60)); // NOI18N
         jLabel2.setText("Agradecemos su paciencia.");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/istockphoto-626039174-612x612-removebg-preview.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/yocodificandopor8dias.jpg"))); // NOI18N
         jLabel3.setToolTipText("");
 
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
@@ -56,8 +56,8 @@ public class Supplier extends javax.swing.JPanel {
                         .addGap(196, 196, 196)
                         .addComponent(jLabel2))
                     .addGroup(bgLayout.createSequentialGroup()
-                        .addGap(288, 288, 288)
-                        .addComponent(jLabel3)))
+                        .addGap(237, 237, 237)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 679, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(200, Short.MAX_VALUE))
         );
         bgLayout.setVerticalGroup(
@@ -67,9 +67,9 @@ public class Supplier extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
